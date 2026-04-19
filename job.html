@@ -3,203 +3,332 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karir | NHI</title>
+    <title>Portal Karir Tokutei Ginou</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        .bg-navy { background-color: #001F3F; }
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .text-maroon { color: #800000; }
+        .bg-maroon { background-color: #800000; }
         
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a; /* Dark background matches NHI theme */
-            color: #f8fafc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
         }
 
-        .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+        .job-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .glass-card:hover {
-            border-color: #8b5cf6; /* Purple accent */
+        .job-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        .gradient-text {
-            background: linear-gradient(90deg, #a78bfa, #f472b6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .btn-apply {
+            transition: opacity 0.3s;
         }
 
-        .modal-overlay {
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 50;
-            align-items: center;
-            justify-content: center;
+        .btn-apply:hover {
+            opacity: 0.9;
         }
     </style>
 </head>
-<body class="min-h-screen">
+<body>
 
-    <!-- Navigation (Simulated) -->
-    <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto">
-        <div class="text-2xl font-bold tracking-tighter">NHI<span class="text-purple-500">.</span></div>
-        <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest">
-            <a href="#" class="hover:text-purple-400 transition">Beranda</a>
-            <a href="#" class="text-purple-400 font-bold border-b-2 border-purple-500">Job</a>
-            <a href="#" class="hover:text-purple-400 transition">Tentang Kami</a>
-            <a href="#" class="hover:text-purple-400 transition">Kontak</a>
+    <!-- Navigation -->
+    <nav class="bg-navy p-4 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-gold font-bold text-2xl flex items-center gap-2">
+                <i class="fas fa-briefcase"></i>
+                GINOU CAREER
+            </div>
+            <div class="hidden md:flex space-x-6 text-white uppercase text-sm font-semibold">
+                <a href="#" class="hover:text-gold">Beranda</a>
+                <a href="#lowongan" class="hover:text-gold">Lowongan</a>
+                <a href="#prosedur" class="hover:text-gold">Prosedur</a>
+                <a href="#kontak" class="hover:text-gold">Kontak</a>
+            </div>
+            <button class="bg-gold text-navy px-4 py-2 rounded font-bold text-sm">LOGIN</button>
         </div>
-        <button class="bg-purple-600 hover:bg-purple-700 px-5 py-2 rounded-full text-sm font-semibold transition">Gabung Kami</button>
     </nav>
 
     <!-- Hero Section -->
-    <section class="py-20 px-6 text-center">
-        <h1 class="text-5xl md:text-7xl font-bold mb-6">Masa Depan <span class="gradient-text">Karir Anda</span></h1>
-        <p class="text-slate-400 max-w-2xl mx-auto text-lg">
-            Kami mencari talenta berbakat untuk berinovasi dan membangun solusi masa depan bersama tim NHI. Temukan peran yang sesuai dengan Anda.
-        </p>
-    </section>
-
-    <!-- Filters & Search -->
-    <section class="max-w-7xl mx-auto px-6 mb-12">
-        <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
-            <div class="relative w-full md:w-96">
-                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
-                <input type="text" placeholder="Cari posisi pekerjaan..." class="w-full bg-slate-800/50 border border-slate-700 rounded-xl py-3 pl-12 pr-4 focus:outline-none focus:border-purple-500 transition">
-            </div>
-            <div class="flex gap-2 overflow-x-auto pb-2 w-full md:w-auto">
-                <button class="bg-purple-600 px-4 py-2 rounded-lg text-sm whitespace-nowrap">Semua</button>
-                <button class="bg-slate-800 px-4 py-2 rounded-lg text-sm whitespace-nowrap hover:bg-slate-700">Engineering</button>
-                <button class="bg-slate-800 px-4 py-2 rounded-lg text-sm whitespace-nowrap hover:bg-slate-700">Design</button>
-                <button class="bg-slate-800 px-4 py-2 rounded-lg text-sm whitespace-nowrap hover:bg-slate-700">Marketing</button>
-            </div>
+    <header class="bg-navy text-white py-20 px-4 text-center border-b-4 border-gold">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Wujudkan Karir di <span class="text-gold">Jepang</span></h1>
+        <p class="text-lg max-w-2xl mx-auto opacity-90">Temukan peluang kerja Specified Skilled Worker (Tokutei Ginou) dengan gaji kompetitif dan lingkungan kerja yang mendukung.</p>
+        <div class="mt-8">
+            <a href="#lowongan" class="bg-maroon text-white px-8 py-3 rounded-full font-bold uppercase tracking-wider hover:bg-red-900 transition">Lihat Lowongan</a>
         </div>
-    </section>
+    </header>
 
-    <!-- Job Listings -->
-    <section class="max-w-7xl mx-auto px-6 pb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Main Content -->
+    <main class="container mx-auto py-12 px-4">
         
-        <!-- Job Card 1 -->
-        <div class="glass-card p-6 rounded-2xl">
-            <div class="flex justify-between items-start mb-4">
-                <div class="bg-purple-500/20 text-purple-400 p-3 rounded-lg">
-                    <i class="fas fa-code text-xl"></i>
-                </div>
-                <span class="text-xs font-semibold text-emerald-400 bg-emerald-400/10 px-2 py-1 rounded">Full-time</span>
+        <!-- Filter Category -->
+        <div id="lowongan" class="mb-12">
+            <h2 class="text-3xl font-bold text-navy mb-8 text-center">Bidang Pekerjaan Tersedia</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="bg-gold text-navy px-6 py-2 rounded-full font-bold shadow hover:bg-opacity-80">Semua</button>
+                <button class="bg-white text-navy border border-navy px-6 py-2 rounded-full font-medium hover:bg-navy hover:text-white transition">Pertanian</button>
+                <button class="bg-white text-navy border border-navy px-6 py-2 rounded-full font-medium hover:bg-navy hover:text-white transition">Peternakan</button>
+                <button class="bg-white text-navy border border-navy px-6 py-2 rounded-full font-medium hover:bg-navy hover:text-white transition">Konstruksi</button>
+                <button class="bg-white text-navy border border-navy px-6 py-2 rounded-full font-medium hover:bg-navy hover:text-white transition">Pengolahan Makanan</button>
+                <button class="bg-white text-navy border border-navy px-6 py-2 rounded-full font-medium hover:bg-navy hover:text-white transition">Caregiver</button>
             </div>
-            <h3 class="text-xl font-bold mb-1">Senior Frontend Engineer</h3>
-            <p class="text-slate-400 text-sm mb-4">Departemen: Engineering</p>
-            <div class="flex items-center text-slate-400 text-sm gap-4 mb-6">
-                <span><i class="fas fa-map-marker-alt mr-2"></i>Jakarta (Remote)</span>
-                <span><i class="fas fa-wallet mr-2"></i>15 - 25 jt</span>
-            </div>
-            <button onclick="openModal('Senior Frontend Engineer')" class="w-full bg-slate-100 text-slate-900 font-bold py-3 rounded-xl hover:bg-purple-500 hover:text-white transition">Lamar Sekarang</button>
         </div>
 
-        <!-- Job Card 2 -->
-        <div class="glass-card p-6 rounded-2xl">
-            <div class="flex justify-between items-start mb-4">
-                <div class="bg-blue-500/20 text-blue-400 p-3 rounded-lg">
-                    <i class="fas fa-paint-brush text-xl"></i>
-                </div>
-                <span class="text-xs font-semibold text-emerald-400 bg-emerald-400/10 px-2 py-1 rounded">Full-time</span>
-            </div>
-            <h3 class="text-xl font-bold mb-1">UI/UX Designer</h3>
-            <p class="text-slate-400 text-sm mb-4">Departemen: Creative</p>
-            <div class="flex items-center text-slate-400 text-sm gap-4 mb-6">
-                <span><i class="fas fa-map-marker-alt mr-2"></i>Bali (Hybrid)</span>
-                <span><i class="fas fa-wallet mr-2"></i>10 - 18 jt</span>
-            </div>
-            <button onclick="openModal('UI/UX Designer')" class="w-full bg-slate-100 text-slate-900 font-bold py-3 rounded-xl hover:bg-purple-500 hover:text-white transition">Lamar Sekarang</button>
-        </div>
-
-        <!-- Job Card 3 -->
-        <div class="glass-card p-6 rounded-2xl">
-            <div class="flex justify-between items-start mb-4">
-                <div class="bg-orange-500/20 text-orange-400 p-3 rounded-lg">
-                    <i class="fas fa-bullhorn text-xl"></i>
-                </div>
-                <span class="text-xs font-semibold text-amber-400 bg-amber-400/10 px-2 py-1 rounded">Kontrak</span>
-            </div>
-            <h3 class="text-xl font-bold mb-1">Social Media Specialist</h3>
-            <p class="text-slate-400 text-sm mb-4">Departemen: Marketing</p>
-            <div class="flex items-center text-slate-400 text-sm gap-4 mb-6">
-                <span><i class="fas fa-map-marker-alt mr-2"></i>Remote</span>
-                <span><i class="fas fa-wallet mr-2"></i>7 - 12 jt</span>
-            </div>
-            <button onclick="openModal('Social Media Specialist')" class="w-full bg-slate-100 text-slate-900 font-bold py-3 rounded-xl hover:bg-purple-500 hover:text-white transition">Lamar Sekarang</button>
-        </div>
-
-    </section>
-
-    <!-- Application Modal -->
-    <div id="applyModal" class="modal-overlay px-4">
-        <div class="bg-slate-900 border border-slate-700 w-full max-w-lg p-8 rounded-3xl relative">
-            <button onclick="closeModal()" class="absolute top-4 right-6 text-slate-500 hover:text-white text-2xl">&times;</button>
-            <h2 class="text-2xl font-bold mb-2">Lamar Posisi</h2>
-            <p id="jobTitleDisplay" class="text-purple-400 font-semibold mb-6">Nama Pekerjaan</p>
+        <!-- Job Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
-            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Lamaran Anda telah terkirim!'); closeModal();">
-                <div>
-                    <label class="block text-sm text-slate-400 mb-1">Nama Lengkap</label>
-                    <input type="text" required class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500">
+            <!-- Card 1: Pertanian -->
+            <div class="job-card bg-white rounded-xl overflow-hidden shadow-md border-t-4 border-gold">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-navy text-gold text-xs font-bold px-3 py-1 rounded-full uppercase">Pertanian</span>
+                        <span class="text-maroon font-bold">HOT JOB</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-2">Budidaya Sayuran & Greenhouse</h3>
+                    <div class="space-y-3 mt-4 text-gray-600">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-map-marker-alt text-maroon w-5"></i>
+                            <span>Nagano, Jepang</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-money-bill-wave text-maroon w-5"></i>
+                            <span class="font-semibold text-navy">¥185.000 - ¥210.000 / Bulan</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-users text-maroon w-5"></i>
+                            <span>Senior Indonesia: 4 Orang</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-briefcase text-maroon w-5"></i>
+                            <span>Bidang: Pertanian (Nogyo)</span>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <label class="block text-sm text-slate-400 mb-1">Email</label>
-                    <input type="email" required class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500">
+                <div class="bg-gray-50 p-4 border-t border-gray-100 flex gap-2">
+                    <button class="flex-1 bg-navy text-white py-2 rounded font-bold hover:bg-blue-900" onclick="showApplyModal('Budidaya Sayuran & Greenhouse')">Lamar Sekarang</button>
+                    <button class="w-12 bg-white border border-navy text-navy rounded hover:bg-gray-100"><i class="far fa-heart"></i></button>
                 </div>
-                <div>
-                    <label class="block text-sm text-slate-400 mb-1">Link CV (PDF/Drive)</label>
-                    <input type="url" required class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500" placeholder="https://...">
+            </div>
+
+            <!-- Card 2: Konstruksi -->
+            <div class="job-card bg-white rounded-xl overflow-hidden shadow-md border-t-4 border-gold">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-navy text-gold text-xs font-bold px-3 py-1 rounded-full uppercase">Konstruksi</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-2">Pemasangan Scaffolding (Tobi)</h3>
+                    <div class="space-y-3 mt-4 text-gray-600">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-map-marker-alt text-maroon w-5"></i>
+                            <span>Osaka, Jepang</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-money-bill-wave text-maroon w-5"></i>
+                            <span class="font-semibold text-navy">¥220.000 - ¥250.000 / Bulan</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-users text-maroon w-5"></i>
+                            <span>Senior Indonesia: 12 Orang</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-briefcase text-maroon w-5"></i>
+                            <span>Bidang: Konstruksi (Kensetsu)</span>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <label class="block text-sm text-slate-400 mb-1">Pesan Tambahan</label>
-                    <textarea class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 h-24 focus:outline-none focus:border-purple-500"></textarea>
+                <div class="bg-gray-50 p-4 border-t border-gray-100 flex gap-2">
+                    <button class="flex-1 bg-navy text-white py-2 rounded font-bold hover:bg-blue-900" onclick="showApplyModal('Pemasangan Scaffolding')">Lamar Sekarang</button>
+                    <button class="w-12 bg-white border border-navy text-navy rounded hover:bg-gray-100"><i class="far fa-heart"></i></button>
                 </div>
-                <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 rounded-xl transition mt-4">Kirim Lamaran</button>
-            </form>
+            </div>
+
+            <!-- Card 3: Peternakan -->
+            <div class="job-card bg-white rounded-xl overflow-hidden shadow-md border-t-4 border-gold">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-navy text-gold text-xs font-bold px-3 py-1 rounded-full uppercase">Peternakan</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-2">Pengelolaan Peternakan Babi</h3>
+                    <div class="space-y-3 mt-4 text-gray-600">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-map-marker-alt text-maroon w-5"></i>
+                            <span>Hokkaido, Jepang</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-money-bill-wave text-maroon w-5"></i>
+                            <span class="font-semibold text-navy">¥190.000 - ¥215.000 / Bulan</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-users text-maroon w-5"></i>
+                            <span>Senior Indonesia: 2 Orang</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-briefcase text-maroon w-5"></i>
+                            <span>Bidang: Peternakan (Chikusannyo)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-4 border-t border-gray-100 flex gap-2">
+                    <button class="flex-1 bg-navy text-white py-2 rounded font-bold hover:bg-blue-900" onclick="showApplyModal('Peternakan Babi')">Lamar Sekarang</button>
+                    <button class="w-12 bg-white border border-navy text-navy rounded hover:bg-gray-100"><i class="far fa-heart"></i></button>
+                </div>
+            </div>
+
+            <!-- Card 4: Pengolahan Makanan -->
+            <div class="job-card bg-white rounded-xl overflow-hidden shadow-md border-t-4 border-gold">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-navy text-gold text-xs font-bold px-3 py-1 rounded-full uppercase">Pengolahan Makanan</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-2">Pabrik Pembuatan Bento</h3>
+                    <div class="space-y-3 mt-4 text-gray-600">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-map-marker-alt text-maroon w-5"></i>
+                            <span>Saitama, Jepang</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-money-bill-wave text-maroon w-5"></i>
+                            <span class="font-semibold text-navy">¥178.000 - ¥200.000 / Bulan</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-users text-maroon w-5"></i>
+                            <span>Senior Indonesia: 25 Orang</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-briefcase text-maroon w-5"></i>
+                            <span>Bidang: Pengolahan Makanan</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-4 border-t border-gray-100 flex gap-2">
+                    <button class="flex-1 bg-navy text-white py-2 rounded font-bold hover:bg-blue-900" onclick="showApplyModal('Pabrik Bento')">Lamar Sekarang</button>
+                    <button class="w-12 bg-white border border-navy text-navy rounded hover:bg-gray-100"><i class="far fa-heart"></i></button>
+                </div>
+            </div>
+
+            <!-- Card 5: Caregiver -->
+            <div class="job-card bg-white rounded-xl overflow-hidden shadow-md border-t-4 border-gold">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-navy text-gold text-xs font-bold px-3 py-1 rounded-full uppercase">Caregiver</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-2">Staff Panti Jompo (Kaigo)</h3>
+                    <div class="space-y-3 mt-4 text-gray-600">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-map-marker-alt text-maroon w-5"></i>
+                            <span>Tokyo, Jepang</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-money-bill-wave text-maroon w-5"></i>
+                            <span class="font-semibold text-navy">¥200.000 - ¥230.000 / Bulan</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-users text-maroon w-5"></i>
+                            <span>Senior Indonesia: 8 Orang</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-briefcase text-maroon w-5"></i>
+                            <span>Bidang: Perawat Lansia</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-4 border-t border-gray-100 flex gap-2">
+                    <button class="flex-1 bg-navy text-white py-2 rounded font-bold hover:bg-blue-900" onclick="showApplyModal('Kaigo Tokyo')">Lamar Sekarang</button>
+                    <button class="w-12 bg-white border border-navy text-navy rounded hover:bg-gray-100"><i class="far fa-heart"></i></button>
+                </div>
+            </div>
+            
         </div>
-    </div>
+    </main>
+
+    <!-- Registration/Contact Form -->
+    <section id="kontak" class="bg-navy py-16 px-4">
+        <div class="container mx-auto max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
+            <div class="md:w-1/3 bg-gold p-10 text-navy flex flex-col justify-center">
+                <h3 class="text-2xl font-bold mb-4">Konsultasi Gratis</h3>
+                <p class="mb-6 font-medium">Bingung memilih bidang? Tim kami siap membantu mencocokkan skill Anda dengan kebutuhan di Jepang.</p>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                        <span>0812-3456-7890</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-envelope text-xl"></i>
+                        <span>info@ginoucareer.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-2/3 p-10">
+                <form id="applyForm" onsubmit="event.preventDefault(); alert('Terima kasih! Tim kami akan menghubungi Anda segera.');">
+                    <h3 class="text-2xl font-bold text-navy mb-6 text-center">Form Pendaftaran Cepat</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <label class="block text-sm font-bold text-gray-700">Nama Lengkap</label>
+                            <input type="text" class="w-full p-3 border border-gray-300 rounded focus:border-navy focus:outline-none" placeholder="Masukkan nama..." required>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-bold text-gray-700">No. WhatsApp</label>
+                            <input type="tel" class="w-full p-3 border border-gray-300 rounded focus:border-navy focus:outline-none" placeholder="0812..." required>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-bold text-gray-700">Sertifikat JLPT/JFT</label>
+                            <select class="w-full p-3 border border-gray-300 rounded focus:border-navy focus:outline-none">
+                                <option>Belum Ada</option>
+                                <option>N4</option>
+                                <option>N3</option>
+                                <option>JFT Basic A2</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-bold text-gray-700">Bidang Diminati</label>
+                            <select id="selectedJob" class="w-full p-3 border border-gray-300 rounded focus:border-navy focus:outline-none">
+                                <option>Pilih Bidang...</option>
+                                <option>Pertanian</option>
+                                <option>Konstruksi</option>
+                                <option>Peternakan</option>
+                                <option>Pengolahan Makanan</option>
+                                <option>Caregiver</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full mt-6 bg-maroon text-white py-3 rounded-lg font-bold hover:bg-red-900 transition shadow-lg">KIRIM LAMARAN</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800 py-12 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-xl font-bold">NHI<span class="text-purple-500">.</span></div>
-            <p class="text-slate-500 text-sm">© 2024 NHI Corporation. Hak Cipta Dilindungi.</p>
-            <div class="flex gap-4 text-slate-400">
-                <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="hover:text-white transition"><i class="fab fa-github"></i></a>
+    <footer class="bg-navy border-t border-gold py-8 text-center text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-gold font-bold text-xl mb-4">GINOU CAREER</div>
+            <p class="text-sm opacity-60 mb-6">© 2024 Portal Lowongan Tokutei Ginou Resmi. Seluruh Hak Cipta Dilindungi.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="text-white hover:text-gold text-xl"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white hover:text-gold text-xl"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white hover:text-gold text-xl"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </footer>
 
     <script>
-        const modal = document.getElementById('applyModal');
-        const jobTitleDisplay = document.getElementById('jobTitleDisplay');
-
-        function openModal(jobTitle) {
-            jobTitleDisplay.innerText = jobTitle;
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Prevent scroll
-        }
-
-        function closeModal() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
+        function showApplyModal(jobTitle) {
+            // Animasi scroll ke form pendaftaran
+            document.getElementById('kontak').scrollIntoView({ behavior: 'smooth' });
+            
+            // Mengisi otomatis dropdown bidang jika perlu (simulasi sederhana)
+            const select = document.getElementById('selectedJob');
+            if (jobTitle.includes('Pertanian')) select.value = 'Pertanian';
+            else if (jobTitle.includes('Konstruksi')) select.value = 'Konstruksi';
+            else if (jobTitle.includes('Peternakan')) select.value = 'Peternakan';
+            else if (jobTitle.includes('Makanan')) select.value = 'Pengolahan Makanan';
+            else if (jobTitle.includes('Kaigo')) select.value = 'Caregiver';
         }
     </script>
 </body>

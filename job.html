@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karir | NHI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Dark background matches NHI theme */
+            color: #f8fafc;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: #8b5cf6; /* Purple accent */
+            transform: translateY(-5px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #a78bfa, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .modal-overlay {
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Navigation (Simulated) -->
+    <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto">
+        <div class="text-2xl font-bold tracking-tighter">NHI<span class="text-purple-500">.</span></div>
+        <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest">
+            <a href="#" class="hover:text-purple-400 transition">Beranda</a>
+            <a href="#" class="text-purple-400 font-bold border-b-2 border-purple-500">Job</a>
+            <a href="#" class="hover:text-purple-400 transition">Tentang Kami</a>
+            <a href="#" class="hover:text-purple-400 transition">Kontak</a>
+        </div>
+        <button class="bg-purple-600 hover:bg-purple-700 px-5 py-2 rounded-full text-sm font-semibold transition">Gabung Kami</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-20 px-6 text-center">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">Masa Depan <span class="gradient-text">Karir Anda</span></h1>
+        <p class="text-slate-400 max-w-2xl mx-auto text-lg">
+            Kami mencari talenta berbakat untuk berinovasi dan membangun solusi masa depan bersama tim NHI. Temukan peran yang sesuai dengan Anda.
+        </p>
+    </section>
+
+    <!-- Filters & Search -->
+    <section class="max-w-7xl mx-auto px-6 mb-12">
+        <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+            <div class="relative w-full md:w-96">
+                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
+                <input type="text" placeholder="Cari posisi pekerjaan..." class="w-full bg-slate-800/50 border border-slate-700 rounded-xl py-3 pl-12 pr-4 focus:outline-none focus:border-purple-500 transition">
+            </div>
+            <div class="flex gap-2 overflow-x-auto pb-2 w-full md:w-auto">
+                <button class="bg-purple-600 px-4 py-2 rounded-lg text-sm whitespace-nowrap">Semua</button>
+                <button class="bg-slate-800 px-4 py-2 rounded-lg text-sm whitespace-nowrap hover:bg-slate-700">Engineering</button>
+                <button class="bg-slate-800 px-4 py-2 rounded-lg text-sm whitespace-nowrap hover:bg-slate-700">Design</button>
+                <button class="bg-slate-800 px-4 py-2 rounded-lg text-sm whitespace-nowrap hover:bg-slate-700">Marketing</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Listings -->
+    <section class="max-w-7xl mx-auto px-6 pb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Job Card 1 -->
+        <div class="glass-card p-6 rounded-2xl">
+            <div class="flex justify-between items-start mb-4">
+                <div class="bg-purple-500/20 text-purple-400 p-3 rounded-lg">
+                    <i class="fas fa-code text-xl"></i>
+                </div>
+                <span class="text-xs font-semibold text-emerald-400 bg-emerald-400/10 px-2 py-1 rounded">Full-time</span>
+            </div>
+            <h3 class="text-xl font-bold mb-1">Senior Frontend Engineer</h3>
+            <p class="text-slate-400 text-sm mb-4">Departemen: Engineering</p>
+            <div class="flex items-center text-slate-400 text-sm gap-4 mb-6">
+                <span><i class="fas fa-map-marker-alt mr-2"></i>Jakarta (Remote)</span>
+                <span><i class="fas fa-wallet mr-2"></i>15 - 25 jt</span>
+            </div>
+            <button onclick="openModal('Senior Frontend Engineer')" class="w-full bg-slate-100 text-slate-900 font-bold py-3 rounded-xl hover:bg-purple-500 hover:text-white transition">Lamar Sekarang</button>
+        </div>
+
+        <!-- Job Card 2 -->
+        <div class="glass-card p-6 rounded-2xl">
+            <div class="flex justify-between items-start mb-4">
+                <div class="bg-blue-500/20 text-blue-400 p-3 rounded-lg">
+                    <i class="fas fa-paint-brush text-xl"></i>
+                </div>
+                <span class="text-xs font-semibold text-emerald-400 bg-emerald-400/10 px-2 py-1 rounded">Full-time</span>
+            </div>
+            <h3 class="text-xl font-bold mb-1">UI/UX Designer</h3>
+            <p class="text-slate-400 text-sm mb-4">Departemen: Creative</p>
+            <div class="flex items-center text-slate-400 text-sm gap-4 mb-6">
+                <span><i class="fas fa-map-marker-alt mr-2"></i>Bali (Hybrid)</span>
+                <span><i class="fas fa-wallet mr-2"></i>10 - 18 jt</span>
+            </div>
+            <button onclick="openModal('UI/UX Designer')" class="w-full bg-slate-100 text-slate-900 font-bold py-3 rounded-xl hover:bg-purple-500 hover:text-white transition">Lamar Sekarang</button>
+        </div>
+
+        <!-- Job Card 3 -->
+        <div class="glass-card p-6 rounded-2xl">
+            <div class="flex justify-between items-start mb-4">
+                <div class="bg-orange-500/20 text-orange-400 p-3 rounded-lg">
+                    <i class="fas fa-bullhorn text-xl"></i>
+                </div>
+                <span class="text-xs font-semibold text-amber-400 bg-amber-400/10 px-2 py-1 rounded">Kontrak</span>
+            </div>
+            <h3 class="text-xl font-bold mb-1">Social Media Specialist</h3>
+            <p class="text-slate-400 text-sm mb-4">Departemen: Marketing</p>
+            <div class="flex items-center text-slate-400 text-sm gap-4 mb-6">
+                <span><i class="fas fa-map-marker-alt mr-2"></i>Remote</span>
+                <span><i class="fas fa-wallet mr-2"></i>7 - 12 jt</span>
+            </div>
+            <button onclick="openModal('Social Media Specialist')" class="w-full bg-slate-100 text-slate-900 font-bold py-3 rounded-xl hover:bg-purple-500 hover:text-white transition">Lamar Sekarang</button>
+        </div>
+
+    </section>
+
+    <!-- Application Modal -->
+    <div id="applyModal" class="modal-overlay px-4">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-lg p-8 rounded-3xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-6 text-slate-500 hover:text-white text-2xl">&times;</button>
+            <h2 class="text-2xl font-bold mb-2">Lamar Posisi</h2>
+            <p id="jobTitleDisplay" class="text-purple-400 font-semibold mb-6">Nama Pekerjaan</p>
+            
+            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Lamaran Anda telah terkirim!'); closeModal();">
+                <div>
+                    <label class="block text-sm text-slate-400 mb-1">Nama Lengkap</label>
+                    <input type="text" required class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500">
+                </div>
+                <div>
+                    <label class="block text-sm text-slate-400 mb-1">Email</label>
+                    <input type="email" required class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500">
+                </div>
+                <div>
+                    <label class="block text-sm text-slate-400 mb-1">Link CV (PDF/Drive)</label>
+                    <input type="url" required class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500" placeholder="https://...">
+                </div>
+                <div>
+                    <label class="block text-sm text-slate-400 mb-1">Pesan Tambahan</label>
+                    <textarea class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 h-24 focus:outline-none focus:border-purple-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 rounded-xl transition mt-4">Kirim Lamaran</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-xl font-bold">NHI<span class="text-purple-500">.</span></div>
+            <p class="text-slate-500 text-sm">© 2024 NHI Corporation. Hak Cipta Dilindungi.</p>
+            <div class="flex gap-4 text-slate-400">
+                <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const modal = document.getElementById('applyModal');
+        const jobTitleDisplay = document.getElementById('jobTitleDisplay');
+
+        function openModal(jobTitle) {
+            jobTitleDisplay.innerText = jobTitle;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script Interview Bahasa Jepang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --navy: #001F3F;
+            --gold: #C5A059;
+            --maroon: #800000;
+        }
+        .bg-navy { background-color: var(--navy); }
+        .text-gold { color: var(--gold); }
+        .bg-gold { background-color: var(--gold); }
+        .text-maroon { color: var(--maroon); }
+        .bg-maroon { background-color: var(--maroon); }
+        
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            border-left: 5px solid var(--gold);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .japanese-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        .romaji-text {
+            font-style: italic;
+            color: #4a5568;
+        }
+
+        .arti-text {
+            color: var(--maroon);
+            font-weight: 500;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body class="pb-12">
+
+    <!-- Header -->
+    <header class="bg-navy text-white py-10 px-4 text-center shadow-lg border-b-4 border-gold">
+        <h1 class="text-3xl md:text-4xl font-bold text-gold mb-2">✨ Script Bahasa Jepang Siap Pakai</h1>
+        <p class="text-lg opacity-90">Persiapan Wawancara Kerja di Jepang</p>
+    </header>
+
+    <main class="max-w-4xl mx-auto mt-8 px-4">
+
+        <!-- 1. Perkenalan Diri -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-navy mb-4 flex items-center">
+                <span class="bg-maroon text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">1</span>
+                Perkenalan Diri (自己紹介 / Jikoshoukai)
+            </h2>
+            <div class="card p-6">
+                <div class="japanese-text mb-3">
+                    はじめまして。<br>
+                    インドネシアから来ました、アンディと申します。<br>
+                    今年は23歳です。<br>
+                    私は責任感が強く、真面目に仕事をすることができます。<br>
+                    どうぞよろしくお願いいたします。
+                </div>
+                <div class="romaji-text mb-4">
+                    Hajimemashite. Indonesia kara kimashita, Andi to moushimasu. Kotoshi wa 23 sai desu. Watashi wa sekininkan ga tsuyoku, majime ni shigoto o suru koto ga dekimasu. Douzo yoroshiku onegaishimasu.
+                </div>
+                <hr class="border-gray-100 mb-3">
+                <div class="arti-text italic text-sm">
+                    "Perkenalkan, saya Andi dari Indonesia. Umur saya 23 tahun. Saya orang yang bertanggung jawab dan bekerja dengan serius. Mohon kerjasamanya."
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid for 2 & 3 -->
+        <div class="grid md:grid-cols-2 gap-6 mb-10">
+            <!-- 2. Alasan -->
+            <section>
+                <h2 class="text-xl font-bold text-navy mb-4 flex items-center">
+                    <span class="bg-maroon text-white w-7 h-7 rounded-full flex items-center justify-center mr-3 text-sm">2</span>
+                    Kenapa ingin kerja di Jepang?
+                </h2>
+                <div class="card p-5 h-full">
+                    <div class="japanese-text text-base mb-3">
+                        日本で働きたい理由は、日本の仕事のやり方や規律を学びたいからです。そして、自分のスキルをもっと向上させたいと思っています。
+                    </div>
+                    <div class="romaji-text text-sm mb-3">
+                        Nihon de hatarakitai riyuu wa, Nihon no shigoto no yarikata ya kiritsu o manabitai kara desu. Soshite, jibun no sukiru o motto koujou sasetai to omotteimasu.
+                    </div>
+                    <div class="arti-text text-sm italic">
+                        "Saya ingin bekerja di Jepang karena ingin belajar sistem kerja dan disiplin Jepang serta meningkatkan kemampuan saya."
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Kelebihan -->
+            <section>
+                <h2 class="text-xl font-bold text-navy mb-4 flex items-center">
+                    <span class="bg-maroon text-white w-7 h-7 rounded-full flex items-center justify-center mr-3 text-sm">3</span>
+                    Apa kelebihan kamu?
+                </h2>
+                <div class="card p-5 h-full">
+                    <div class="japanese-text text-base mb-3">
+                        私の長所は、真面目で責任感が強いところです。また、新しいことを早く学ぶことができます。
+                    </div>
+                    <div class="romaji-text text-sm mb-3">
+                        Watashi no chousho wa, majime de sekininkan ga tsuyoi tokoro desu. Mata, atarashii koto o hayaku manabu koto ga dekimasu.
+                    </div>
+                    <div class="arti-text text-sm italic">
+                        "Kelebihan saya adalah saya orang yang serius, bertanggung jawab, dan cepat belajar."
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Grid for 4 & 5 -->
+        <div class="grid md:grid-cols-2 gap-6 mb-10">
+            <!-- 4. Kelemahan -->
+            <section>
+                <h2 class="text-xl font-bold text-navy mb-4 flex items-center">
+                    <span class="bg-maroon text-white w-7 h-7 rounded-full flex items-center justify-center mr-3 text-sm">4</span>
+                    Apa kelemahan kamu?
+                </h2>
+                <div class="card p-5 h-full">
+                    <div class="japanese-text text-base mb-3">
+                        私の短所は、時々細かいことにこだわりすぎるところです。しかし、今は効率よく仕事ができるように努力しています。
+                    </div>
+                    <div class="romaji-text text-sm mb-3">
+                        Watashi no tansho wa, tokidoki komakai koto ni kodawari sugiru tokoro desu. Shikashi, ima wa kouritsu yoku shigoto ga dekiru you ni doryoku shiteimasu.
+                    </div>
+                    <div class="arti-text text-sm italic">
+                        "Kelemahan saya adalah kadang terlalu detail, tapi sekarang saya sedang belajar bekerja lebih efisien."
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Kesiapan -->
+            <section>
+                <h2 class="text-xl font-bold text-navy mb-4 flex items-center">
+                    <span class="bg-maroon text-white w-7 h-7 rounded-full flex items-center justify-center mr-3 text-sm">5</span>
+                    Siap kerja keras?
+                </h2>
+                <div class="card p-5 h-full">
+                    <div class="japanese-text text-base mb-3">
+                        はい、どんな仕事でも一生懸命頑張ります。会社のルールを守り、最後まで責任を持って働きます。
+                    </div>
+                    <div class="romaji-text text-sm mb-3">
+                        Hai, donna shigoto demo isshoukenmei ganbarimasu. Kaisha no ruuru o mamori, saigo made sekinin o motte hatarakimasu.
+                    </div>
+                    <div class="arti-text text-sm italic">
+                        "Ya, saya siap bekerja keras, mengikuti aturan, dan bertanggung jawab sampai selesai."
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Kalimat Penting Lainnya -->
+        <section class="mt-12">
+            <h2 class="text-2xl font-bold text-gold bg-navy inline-block px-4 py-2 rounded-t-lg">
+                📌 Kalimat Penting Saat Interview
+            </h2>
+            <div class="bg-white p-6 rounded-b-lg rounded-r-lg shadow-md border-t-4 border-navy">
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <span class="text-gold mr-3">●</span>
+                        <div>
+                            <span class="font-bold text-navy">ありがとうございます</span> 
+                            <span class="text-gray-500 mx-2">→</span> 
+                            <span class="romaji-text">Arigatou gozaimasu</span> 
+                            <span class="text-maroon font-semibold block sm:inline ml-0 sm:ml-2">(Terima kasih)</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-gold mr-3">●</span>
+                        <div>
+                            <span class="font-bold text-navy">よろしくお願いします</span> 
+                            <span class="text-gray-500 mx-2">→</span> 
+                            <span class="romaji-text">Yoroshiku onegaishimasu</span> 
+                            <span class="text-maroon font-semibold block sm:inline ml-0 sm:ml-2">(Mohon bantuannya)</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-gold mr-3">●</span>
+                        <div>
+                            <span class="font-bold text-navy">はい、わかりました</span> 
+                            <span class="text-gray-500 mx-2">→</span> 
+                            <span class="romaji-text">Hai, wakarimashita</span> 
+                            <span class="text-maroon font-semibold block sm:inline ml-0 sm:ml-2">(Baik, saya mengerti)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-16 text-center text-gray-500 text-sm">
+        <p>&copy; 2024 Panduan Interview Jepang - Semangat Belajar!</p>
+    </footer>
+
+</body>
+</html>

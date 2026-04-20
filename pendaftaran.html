@@ -228,7 +228,7 @@
     </main>
 
     <footer class="bg-navy text-gray-400 py-6 text-center text-sm">
-        <p>&copy; 2024 Portal Pendaftaran Tokutei Ginou. Semua Hak Dilindungi.</p>
+        <p>&copy; 2026 Portal Pendaftaran Tokutei Ginou.</p>
     </footer>
 
     <script>
@@ -282,7 +282,7 @@
                 alert("Mohon isi Nama Lengkap terlebih dahulu");
                 return;
             }
-            const phone = "6281234567890"; // GANTI DENGAN NOMOR TUJUAN
+            const phone = "+6281353900199"; // GANTI DENGAN NOMOR TUJUAN
             const message = formatMessage(data);
             window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${message}`, '_blank');
         }
@@ -293,7 +293,7 @@
                 alert("Mohon isi Nama Lengkap terlebih dahulu");
                 return;
             }
-            const email = "hrd@perusahaananda.com"; // GANTI DENGAN EMAIL TUJUAN
+            const email = "takaitorii@gmail.com"; // GANTI DENGAN EMAIL TUJUAN
             const subject = `Pendaftaran Tokutei Ginou - ${data.namaRomaji}`;
             const body = formatMessage(data).replace(/%0A/g, '\r\n');
             window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;

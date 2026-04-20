@@ -364,4 +364,27 @@
         }
     </script>
 </body>
+    <script>
+function sendToWhatsApp() {
+    // 1. Ganti dengan nomor WhatsApp tujuan (gunakan format internasional tanpa + atau spasi)
+    const phoneNumber = "6281234567890"; 
+
+    // 2. Ambil nilai dari dropdown
+    const job = document.getElementById('selectedJob').value;
+
+    // 3. Validasi sederhana
+    if (job === "" || job === "Pilih Bidang...") {
+        alert("Silakan pilih bidang yang diminati terlebih dahulu.");
+        return;
+    }
+
+    // 4. Susun pesan
+    const message = `Halo Admin, saya ingin melamar pekerjaan.%0A%0A*Bidang Diminati:* ${job}`;
+
+    // 5. Direct ke WhatsApp
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+    
+    window.open(whatsappURL, '_blank');
+}
+</script>
 </html>

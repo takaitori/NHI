@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami - Professional Contact Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Tema Warna Kustom */
+        .bg-navy { background-color: #001F3F; }
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .text-maroon { color: #800000; }
+        .bg-maroon { background-color: #800000; }
+        
+        .border-gold { border-color: #C5A059; }
+        .hover-bg-maroon:hover { background-color: #600000; }
+        .hover-bg-gold:hover { background-color: #b08d4a; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .contact-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header Section -->
+    <header class="bg-navy py-16 px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-gold mb-4">Hubungi Kami</h1>
+        <p class="text-white text-lg max-w-2xl mx-auto opacity-90">
+            Kami siap membantu Anda. Silakan hubungi kami melalui platform di bawah ini untuk respon yang cepat dan profesional.
+        </p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 -mt-10 mb-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- WhatsApp Direct Message Card -->
+            <div class="contact-card bg-white rounded-xl overflow-hidden shadow-lg border-t-4 border-gold">
+                <div class="p-8 flex flex-col items-center text-center">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fab fa-whatsapp text-4xl text-green-600"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold bg-navy text-gold px-4 py-1 rounded mb-4">WhatsApp</h2>
+                    <p class="text-gray-600 mb-8">
+                        Kirim pesan langsung ke tim support kami untuk konsultasi cepat atau bantuan teknis.
+                    </p>
+                    <button onclick="sendWhatsApp()" class="w-full bg-navy text-gold font-bold py-4 rounded-lg flex items-center justify-center gap-3 hover-bg-gold hover:text-navy transition-all duration-300">
+                        <span>Kirim Pesan Sekarang</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Email Direct Card -->
+            <div class="contact-card bg-white rounded-xl overflow-hidden shadow-lg border-t-4 border-maroon">
+                <div class="p-8 flex flex-col items-center text-center">
+                    <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-envelope text-4xl text-maroon"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold bg-maroon text-white px-4 py-1 rounded mb-4">Email</h2>
+                    <p class="text-gray-600 mb-8">
+                        Kirimkan pertanyaan resmi, proposal, atau feedback melalui layanan surat elektronik kami.
+                    </p>
+                    <button onclick="sendEmail()" class="w-full bg-maroon text-white font-bold py-4 rounded-lg flex items-center justify-center gap-3 hover-bg-maroon transition-all duration-300 shadow-lg">
+                        <span>Kirim Email Resmi</span>
+                        <i class="fas fa-envelope-open-text"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Feedback Section (Optional Form Style) -->
+        <div class="mt-16 bg-navy rounded-2xl p-8 md:p-12 shadow-2xl text-center">
+            <h3 class="text-2xl text-gold font-semibold mb-4">Lokasi Kantor Kami</h3>
+            <p class="text-white opacity-80 mb-6">Jl. Jenderal Sudirman No. 123, Jakarta Selatan, Indonesia</p>
+            <div class="inline-block border-b-2 border-gold pb-1 text-gold">
+                Operasional: Senin - Jumat (09.00 - 17.00 WIB)
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for Dynamic Feedback -->
+    <div id="statusModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg p-6 max-w-sm w-full text-center">
+            <div id="modalIcon" class="text-4xl mb-4"></div>
+            <p id="modalMessage" class="text-navy font-medium mb-4"></p>
+            <button onclick="closeModal()" class="bg-gold text-navy px-6 py-2 rounded font-bold">Tutup</button>
+        </div>
+    </div>
+
+    <footer class="text-center py-8 text-gray-500 text-sm">
+        &copy; 2024 Nama Perusahaan Anda. Seluruh Hak Cipta Dilindungi.
+    </footer>
+
+    <script>
+        // Ganti nomor WhatsApp dan email di sini
+        const WHATSAPP_NUMBER = "6281234567890"; 
+        const BUSINESS_EMAIL = "kontak@perusahaananda.com";
+
+        function sendWhatsApp() {
+            const message = encodeURIComponent("Halo, saya ingin bertanya mengenai layanan Anda.");
+            const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+            
+            showStatus("Mengarahkan ke WhatsApp...", "fab fa-whatsapp text-green-500");
+            
+            setTimeout(() => {
+                window.open(waUrl, '_blank');
+                closeModal();
+            }, 1000);
+        }
+
+        function sendEmail() {
+            const subject = encodeURIComponent("Pertanyaan Layanan");
+            const body = encodeURIComponent("Halo Tim Support,\n\nSaya ingin menanyakan tentang...");
+            const mailtoUrl = `mailto:${BUSINESS_EMAIL}?subject=${subject}&body=${body}`;
+            
+            showStatus("Membuka Aplikasi Email...", "fas fa-envelope text-maroon");
+            
+            setTimeout(() => {
+                window.location.href = mailtoUrl;
+                closeModal();
+            }, 1000);
+        }
+
+        function showStatus(msg, iconClass) {
+            document.getElementById('modalMessage').innerText = msg;
+            document.getElementById('modalIcon').innerHTML = `<i class="${iconClass}"></i>`;
+            document.getElementById('statusModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('statusModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

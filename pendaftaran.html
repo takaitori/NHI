@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Kandidat Tokutei Ginou</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6;
+        }
+
+        .bg-navy { background-color: #001F3F; }
+        .text-gold { color: #C5A059; }
+        .bg-gold { background-color: #C5A059; }
+        .text-maroon { color: #800000; }
+        .bg-maroon { background-color: #800000; }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            margin-top: 0.25rem;
+        }
+
+        .section-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .btn-hover:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            transition: all 0.3s;
+        }
+    </style>
+</head>
+<body class="pb-12">
+
+    <!-- Header -->
+    <header class="bg-navy text-white py-10 px-4 text-center shadow-lg border-b-4 border-[#C5A059]">
+        <h1 class="text-3xl md:text-4xl font-bold text-gold uppercase tracking-wider">Formulir Pendaftaran</h1>
+        <p class="mt-2 text-gray-300">Calon Kandidat Tokutei Ginou (Specified Skilled Worker)</p>
+    </header>
+
+    <main class="max-w-4xl mx-auto mt-10 px-4">
+        <form id="registrationForm" onsubmit="handleFormSubmit(event)">
+            
+            <!-- Data Pribadi -->
+            <div class="section-card">
+                <h2 class="text-xl font-bold mb-6 border-b-2 border-gold pb-2 text-navy flex items-center">
+                    <i class="fas fa-user-circle mr-2 text-gold"></i> Data Pribadi
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Nama Lengkap (Romaji)</label>
+                        <input type="text" id="namaRomaji" class="form-input" placeholder="Contoh: BUDI SANTOSO" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Nama Lengkap (Kana)</label>
+                        <input type="text" id="namaKana" class="form-input" placeholder="Contoh: ブディ サントソ" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Tanggal Lahir</label>
+                        <input type="date" id="tglLahir" class="form-input" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Golongan Darah</label>
+                        <select id="golDarah" class="form-input">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="AB">AB</option>
+                            <option value="O">O</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700">Alamat Lengkap</label>
+                        <textarea id="alamat" class="form-input" rows="3" required></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Status Pernikahan</label>
+                        <select id="statusNikah" class="form-input">
+                            <option value="Belum Menikah">Belum Menikah</option>
+                            <option value="Menikah">Menikah</option>
+                            <option value="Cerai">Cerai</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Agama</label>
+                        <input type="text" id="agama" class="form-input" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Buta Warna</label>
+                        <div class="mt-3 flex space-x-4">
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="butaWarna" value="Ya" class="text-gold">
+                                <span class="ml-2">Ya</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="butaWarna" value="Tidak" checked class="text-gold">
+                                <span class="ml-2">Tidak</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Tinggi & Berat Badan</label>
+                        <input type="text" id="tinggiBerat" class="form-input" placeholder="Contoh: 170cm / 65kg" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dokumen & Legalitas -->
+            <div class="section-card">
+                <h2 class="text-xl font-bold mb-6 border-b-2 border-gold pb-2 text-navy flex items-center">
+                    <i class="fas fa-id-card mr-2 text-gold"></i> Dokumen & Legalitas
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Nomor Passport</label>
+                        <input type="text" id="passport" class="form-input" placeholder="Masukkan nomor atau tulis 'Tidak ada'">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">SIM Mobil (SIM A)</label>
+                        <select id="simMobil" class="form-input">
+                            <option value="Ada">Ada</option>
+                            <option value="Tidak Ada">Tidak Ada</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Riwayat Pendidikan -->
+            <div class="section-card">
+                <h2 class="text-xl font-bold mb-6 border-b-2 border-gold pb-2 text-navy flex items-center">
+                    <i class="fas fa-graduation-cap mr-2 text-gold"></i> Riwayat Pendidikan
+                </h2>
+                <div class="space-y-4">
+                    <div class="grid grid-cols-3 gap-4 items-end">
+                        <div class="col-span-2">
+                            <label class="block text-sm font-medium text-gray-700">SD (Nama Sekolah)</label>
+                            <input type="text" id="sdNama" class="form-input">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Tahun Lulus</label>
+                            <input type="number" id="sdLulus" class="form-input" placeholder="YYYY">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 items-end">
+                        <div class="col-span-2">
+                            <label class="block text-sm font-medium text-gray-700">SMP (Nama Sekolah)</label>
+                            <input type="text" id="smpNama" class="form-input">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Tahun Lulus</label>
+                            <input type="number" id="smpLulus" class="form-input" placeholder="YYYY">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 items-end">
+                        <div class="col-span-2">
+                            <label class="block text-sm font-medium text-gray-700">SMA/SMK (Nama Sekolah)</label>
+                            <input type="text" id="smaNama" class="form-input">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Tahun Lulus</label>
+                            <input type="number" id="smaLulus" class="form-input" placeholder="YYYY">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pengalaman Kerja -->
+            <div class="section-card">
+                <h2 class="text-xl font-bold mb-6 border-b-2 border-gold pb-2 text-navy flex items-center">
+                    <i class="fas fa-briefcase mr-2 text-gold"></i> Pengalaman Kerja
+                </h2>
+                <div class="space-y-4">
+                    <label class="block text-sm font-medium text-gray-700">Detail Pengalaman (Nama Perusahaan, Bidang, Periode)</label>
+                    <textarea id="pengalaman" class="form-input" rows="4" placeholder="Contoh: PT. Maju Jaya - Bidang Manufaktur (Januari 2020 - Desember 2022)"></textarea>
+                </div>
+            </div>
+
+            <!-- Upload Dokumen -->
+            <div class="section-card">
+                <h2 class="text-xl font-bold mb-6 border-b-2 border-gold pb-2 text-navy flex items-center">
+                    <i class="fas fa-file-upload mr-2 text-gold"></i> Lampiran (Scan Dokumen)
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Scan Passport</label>
+                        <input type="file" class="form-input text-xs">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Scan Sertifikat SSW</label>
+                        <input type="file" class="form-input text-xs">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Scan Senmonkyuu (Opsional)</label>
+                        <input type="file" class="form-input text-xs">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Scan JLPT / JFT Basic A2</label>
+                        <input type="file" class="form-input text-xs">
+                    </div>
+                </div>
+                <p class="text-xs text-red-600 mt-4 italic">* Pastikan file terbaca dengan jelas (Maks 2MB per file)</p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col md:flex-row gap-4 mb-10">
+                <button type="button" onclick="sendToWhatsApp()" class="flex-1 bg-green-600 text-white font-bold py-4 px-6 rounded-lg shadow-lg btn-hover flex items-center justify-center">
+                    <i class="fab fa-whatsapp mr-2 text-2xl"></i> Kirim via WhatsApp
+                </button>
+                <button type="button" onclick="sendToEmail()" class="flex-1 bg-maroon text-white font-bold py-4 px-6 rounded-lg shadow-lg btn-hover flex items-center justify-center">
+                    <i class="fas fa-envelope mr-2 text-2xl"></i> Kirim via Email
+                </button>
+            </div>
+            
+        </form>
+    </main>
+
+    <footer class="bg-navy text-gray-400 py-6 text-center text-sm">
+        <p>&copy; 2024 Portal Pendaftaran Tokutei Ginou. Semua Hak Dilindungi.</p>
+    </footer>
+
+    <script>
+        function getFormData() {
+            const data = {
+                namaRomaji: document.getElementById('namaRomaji').value,
+                namaKana: document.getElementById('namaKana').value,
+                tglLahir: document.getElementById('tglLahir').value,
+                alamat: document.getElementById('alamat').value,
+                golDarah: document.getElementById('golDarah').value,
+                statusNikah: document.getElementById('statusNikah').value,
+                agama: document.getElementById('agama').value,
+                butaWarna: document.querySelector('input[name="butaWarna"]:checked').value,
+                tinggiBerat: document.getElementById('tinggiBerat').value,
+                passport: document.getElementById('passport').value,
+                simMobil: document.getElementById('simMobil').value,
+                sd: `${document.getElementById('sdNama').value} (Lulus: ${document.getElementById('sdLulus').value})`,
+                smp: `${document.getElementById('smpNama').value} (Lulus: ${document.getElementById('smpLulus').value})`,
+                sma: `${document.getElementById('smaNama').value} (Lulus: ${document.getElementById('smaLulus').value})`,
+                pengalaman: document.getElementById('pengalaman').value
+            };
+            return data;
+        }
+
+        function formatMessage(data) {
+            return `*PENDAFTARAN TOKUTEI GINOU*%0A%0A` +
+                   `*Data Pribadi*%0A` +
+                   `- Nama (Romaji): ${data.namaRomaji}%0A` +
+                   `- Nama (Kana): ${data.namaKana}%0A` +
+                   `- Tgl Lahir: ${data.tglLahir}%0A` +
+                   `- Alamat: ${data.alamat}%0A` +
+                   `- Gol Darah: ${data.golDarah}%0A` +
+                   `- Status: ${data.statusNikah}%0A` +
+                   `- Agama: ${data.agama}%0A` +
+                   `- Buta Warna: ${data.butaWarna}%0A` +
+                   `- Tinggi/Berat: ${data.tinggiBerat}%0A%0A` +
+                   `*Dokumen*%0A` +
+                   `- Passport: ${data.passport}%0A` +
+                   `- SIM Mobil: ${data.simMobil}%0A%0A` +
+                   `*Pendidikan*%0A` +
+                   `- SD: ${data.sd}%0A` +
+                   `- SMP: ${data.smp}%0A` +
+                   `- SMA: ${data.sma}%0A%0A` +
+                   `*Pengalaman Kerja*%0A` +
+                   `${data.pengalaman}`;
+        }
+
+        function sendToWhatsApp() {
+            const data = getFormData();
+            if(!data.namaRomaji) {
+                alert("Mohon isi Nama Lengkap terlebih dahulu");
+                return;
+            }
+            const phone = "6281234567890"; // GANTI DENGAN NOMOR TUJUAN
+            const message = formatMessage(data);
+            window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${message}`, '_blank');
+        }
+
+        function sendToEmail() {
+            const data = getFormData();
+            if(!data.namaRomaji) {
+                alert("Mohon isi Nama Lengkap terlebih dahulu");
+                return;
+            }
+            const email = "hrd@perusahaananda.com"; // GANTI DENGAN EMAIL TUJUAN
+            const subject = `Pendaftaran Tokutei Ginou - ${data.namaRomaji}`;
+            const body = formatMessage(data).replace(/%0A/g, '\r\n');
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+    </script>
+</body>
+</html>

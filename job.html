@@ -340,7 +340,7 @@
     <footer class="bg-navy border-t border-gold py-8 text-center text-white">
         <div class="container mx-auto px-4">
             <div class="text-gold font-bold text-xl mb-4">GINOU CAREER</div>
-            <p class="text-sm opacity-60 mb-6">© 2026 Portal Lowongan Tokutei Ginou Resmi. Seluruh Hak Cipta Dilindungi.</p>
+            <p class="text-sm opacity-60 mb-6">© 2026 Portal Lowongan Tokutei Ginou Resmi.</p>
             <div class="flex justify-center space-x-4">
                 <a href="#" class="text-white hover:text-gold text-xl"><i class="fab fa-facebook"></i></a>
                 <a href="#" class="text-white hover:text-gold text-xl"><i class="fab fa-instagram"></i></a>
@@ -350,28 +350,18 @@
     </footer>
 
     <script>
-        function sendToWhatsApp() {
-    // 1. Ganti dengan nomor WhatsApp tujuan (gunakan format internasional tanpa + atau spasi)
-    const phoneNumber = "6281353900199"; 
-
-    // 2. Ambil nilai dari dropdown
-    const job = document.getElementById('selectedJob').value;
-
-    // 3. Validasi sederhana
-    if (job === "" || job === "Pilih Bidang...") {
-        alert("Silakan pilih bidang yang diminati terlebih dahulu.");
-        return;
-    }
-
-    // 4. Susun pesan
-    const message = `Halo Admin, saya ingin melamar pekerjaan.%0A%0A*Bidang Diminati:* ${job}`;
-
-    // 5. Direct ke WhatsApp
-    const whatsappURL = `https://wa.me/${6281353900199}?text=${message}`;
-    
-    window.open(whatsappURL, '_blank');
-}
-</script>
+                function showApplyModal(jobTitle) {
+            // Animasi scroll ke form pendaftaran
+            document.getElementById('kontak').scrollIntoView({ behavior: 'smooth' });
+            
+            // Mengisi otomatis dropdown bidang jika perlu (simulasi sederhana)
+            const select = document.getElementById('selectedJob');
+            if (jobTitle.includes('Pertanian')) select.value = 'Pertanian';
+            else if (jobTitle.includes('Konstruksi')) select.value = 'Konstruksi';
+            else if (jobTitle.includes('Peternakan')) select.value = 'Peternakan';
+            else if (jobTitle.includes('Makanan')) select.value = 'Pengolahan Makanan';
+            else if (jobTitle.includes('Kaigo')) select.value = 'Caregiver';
+        }
     </script>
 </body>
 </html>

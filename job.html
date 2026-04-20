@@ -350,22 +350,7 @@
     </footer>
 
     <script>
-        function showApplyModal(jobTitle) {
-            // Animasi scroll ke form pendaftaran
-            document.getElementById('kontak').scrollIntoView({ behavior: 'smooth' });
-            
-            // Mengisi otomatis dropdown bidang jika perlu (simulasi sederhana)
-            const select = document.getElementById('selectedJob');
-            if (jobTitle.includes('Pertanian')) select.value = 'Pertanian';
-            else if (jobTitle.includes('Konstruksi')) select.value = 'Konstruksi';
-            else if (jobTitle.includes('Peternakan')) select.value = 'Peternakan';
-            else if (jobTitle.includes('Makanan')) select.value = 'Pengolahan Makanan';
-            else if (jobTitle.includes('Kaigo')) select.value = 'Caregiver';
-        }
-    </script>
-</body>
-    <script>
-function sendToWhatsApp() {
+        function sendToWhatsApp() {
     // 1. Ganti dengan nomor WhatsApp tujuan (gunakan format internasional tanpa + atau spasi)
     const phoneNumber = "6281353900199"; 
 
@@ -387,4 +372,6 @@ function sendToWhatsApp() {
     window.open(whatsappURL, '_blank');
 }
 </script>
+    </script>
+</body>
 </html>

@@ -3,302 +3,2184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pendaftaran Kandidat Tokutei Ginou</title>
-    <link href='https://github.com/takaitori/NHI/blob/main/Favicon.png?raw=true' rel='shortcut icon'>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Glamour Beauty Salon - Kecantikan & Perawatan Rambut</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #c9a96e;
+            --primary-dark: #a07840;
+            --secondary: #2c1810;
+            --accent: #f5e6d3;
+            --white: #ffffff;
+            --gray: #f8f5f2;
+            --text: #333333;
+            --text-light: #777777;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f7f6;
+            font-family: 'Georgia', serif;
+            color: var(--text);
+            overflow-x: hidden;
         }
 
-        .bg-navy { background-color: #001F3F; }
-        .text-gold { color: #C5A059; }
-        .bg-gold { background-color: #C5A059; }
-        .text-maroon { color: #800000; }
-        .bg-maroon { background-color: #800000; }
-        
-        .form-input {
+        /* ===== NAVBAR ===== */
+        nav {
+            position: fixed;
+            top: 0;
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #d1d5db;
-            border-radius: 0.5rem;
-            margin-top: 0.25rem;
+            z-index: 1000;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+            background: transparent;
         }
 
-        .section-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
+        nav.scrolled {
+            background: rgba(44, 24, 16, 0.97);
+            padding: 15px 5%;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
         }
 
-        .btn-hover:hover {
-            opacity: 0.9;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .logo-text {
+            color: var(--white);
+        }
+
+        .logo-text h2 {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-nav {
+            background: var(--primary);
+            color: var(--white) !important;
+            padding: 10px 25px;
+            border-radius: 30px;
+            transition: all 0.3s !important;
+        }
+
+        .btn-nav:hover {
+            background: var(--primary-dark) !important;
             transform: translateY(-2px);
+        }
+
+        .btn-nav::after {
+            display: none !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            border-radius: 3px;
             transition: all 0.3s;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a0a05 0%, #2c1810 40%, #4a2818 70%, #2c1810 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(201,169,110,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201,169,110,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            padding: 0 5%;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201,169,110,0.2);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 72px);
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary);
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            font-family: 'Arial', sans-serif;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 15px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            display: inline-block;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(201,169,110,0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 15px;
+            letter-spacing: 1px;
+            border: 2px solid rgba(255,255,255,0.4);
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--white);
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            position: absolute;
+            right: 5%;
+            bottom: 15%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            z-index: 2;
+            animation: fadeInRight 0.8s ease 0.8s both;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(201,169,110,0.3);
+            border-radius: 15px;
+            padding: 20px 30px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 36px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .stat-card p {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.5);
+            font-size: 11px;
+            letter-spacing: 2px;
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator .arrow {
+            width: 30px;
+            height: 30px;
+            border-right: 2px solid var(--primary);
+            border-bottom: 2px solid var(--primary);
+            transform: rotate(45deg);
+        }
+
+        /* ===== SECTION STYLES ===== */
+        section {
+            padding: 100px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            color: var(--primary);
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .section-header h2 {
+            font-size: clamp(30px, 4vw, 48px);
+            color: var(--secondary);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .section-header p {
+            font-size: 17px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            margin: 20px auto;
+            border-radius: 3px;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            background: var(--gray);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-img-main {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #c9a96e, #a07840);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-img-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(44,24,16,0.3), transparent);
+        }
+
+        .about-badge-img {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .about-badge-img h3 {
+            font-size: 36px;
+            color: var(--primary);
+        }
+
+        .about-badge-img p {
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        .about-content h2 {
+            font-size: 40px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .about-content h2 em {
+            color: var(--primary);
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .feature-item .check {
+            width: 22px;
+            height: 22px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--gray);
+            border-radius: 20px;
+            padding: 40px 35px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            background: var(--white);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin-bottom: 25px;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.7;
+            font-family: 'Arial', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .service-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .price span {
+            font-size: 13px;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .service-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 13px;
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap 0.3s;
+        }
+
+        .service-link:hover {
+            gap: 10px;
+        }
+
+        /* ===== PRICE LIST ===== */
+        .pricelist {
+            background: var(--secondary);
+        }
+
+        .pricelist .section-header h2 {
+            color: var(--white);
+        }
+
+        .pricelist .section-header p {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .price-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 10px 25px;
+            border-radius: 30px;
+            border: 1px solid rgba(201,169,110,0.4);
+            background: transparent;
+            color: rgba(255,255,255,0.6);
+            cursor: pointer;
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active,
+        .tab-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--white);
+        }
+
+        .price-table {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .price-table.active {
+            display: block;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: background 0.3s;
+        }
+
+        .price-row:hover {
+            background: rgba(201,169,110,0.1);
+            border-radius: 10px;
+        }
+
+        .price-row:last-child {
+            border-bottom: none;
+        }
+
+        .price-item-name {
+            color: var(--white);
+            font-size: 16px;
+        }
+
+        .price-item-desc {
+            color: rgba(255,255,255,0.4);
+            font-size: 12px;
+            font-family: 'Arial', sans-serif;
+            margin-top: 4px;
+        }
+
+        .price-item-price {
+            color: var(--primary);
+            font-size: 20px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* ===== GALLERY ===== */
+        .gallery {
+            background: var(--gray);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 250px);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item:first-child {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item:nth-child(4) {
+            grid-column: span 2;
+        }
+
+        .gallery-bg {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:nth-child(1) .gallery-bg { background: linear-gradient(135deg, #8B6914, #c9a96e); }
+        .gallery-item:nth-child(2) .gallery-bg { background: linear-gradient(135deg, #2c1810, #5a3020); }
+        .gallery-item:nth-child(3) .gallery-bg { background: linear-gradient(135deg, #4a2818, #8B6914); }
+        .gallery-item:nth-child(4) .gallery-bg { background: linear-gradient(135deg, #1a0a05, #4a2818); }
+        .gallery-item:nth-child(5) .gallery-bg { background: linear-gradient(135deg, #c9a96e, #8B6914); }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(44,24,16,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .gallery-overlay span {
+            color: white;
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item:hover .gallery-bg {
+            transform: scale(1.05);
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            background: var(--white);
+        }
+
+        .testimonials-slider {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--gray);
+            border-radius: 20px;
+            padding: 35px;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .quote-mark {
+            font-size: 60px;
+            color: var(--primary);
+            line-height: 1;
+            font-family: Georgia, serif;
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            right: 25px;
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card p {
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.8;
+            font-family: 'Arial', sans-serif;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .reviewer-info h4 {
+            font-size: 16px;
+            color: var(--secondary);
+        }
+
+        .reviewer-info span {
+            font-size: 12px;
+            color: var(--text-light);
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* ===== TEAM ===== */
+        .team {
+            background: var(--gray);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s;
+            text-align: center;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .team-photo {
+            height: 220px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-social {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            background: rgba(44,24,16,0.9);
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 15px;
+            transition: bottom 0.4s;
+        }
+
+        .team-card:hover .team-social {
+            bottom: 0;
+        }
+
+        .team-social a {
+            color: var(--primary);
+            font-size: 18px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .team-social a:hover {
+            color: var(--white);
+        }
+
+        .team-info {
+            padding: 25px;
+        }
+
+        .team-info h3 {
+            font-size: 20px;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+
+        .team-info span {
+            color: var(--primary);
+            font-size: 13px;
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        /* ===== BOOKING ===== */
+        .booking {
+            background: linear-gradient(135deg, var(--secondary) 0%, #4a2818 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .booking::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(201,169,110,0.15), transparent);
+            border-radius: 50%;
+        }
+
+        .booking-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .booking-info h2 {
+            font-size: 42px;
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .booking-info h2 em {
+            color: var(--primary);
+        }
+
+        .booking-info p {
+            color: rgba(255,255,255,0.7);
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .booking-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: rgba(255,255,255,0.8);
+            font-family: 'Arial', sans-serif;
+            font-size: 15px;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(201,169,110,0.2);
+            border: 1px solid rgba(201,169,110,0.4);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .booking-form {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(201,169,110,0.2);
+            border-radius: 25px;
+            padding: 45px;
+        }
+
+        .booking-form h3 {
+            color: var(--white);
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            font-size: 13px;
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(201,169,110,0.3);
+            border-radius: 12px;
+            color: var(--white);
+            font-size: 15px;
+            font-family: 'Arial', sans-serif;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+        }
+
+        .form-group select option {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(201,169,110,0.4);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0d0500;
+            padding: 70px 5% 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.8;
+            margin: 20px 0 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(201,169,110,0.15);
+            border: 1px solid rgba(201,169,110,0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 16px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 14px;
+            font-family: 'Arial', sans-serif;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-links a::before {
+            content: '›';
+            color: var(--primary);
+        }
+
+        .footer-hours {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-hours li {
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+            font-family: 'Arial', sans-serif;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-hours li span:last-child {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.3);
+            font-size: 13px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .footer-bottom p span {
+            color: var(--primary);
+        }
+
+        /* ===== FLOATING WHATSAPP ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37,211,102,0.4);
+            z-index: 999;
+            animation: pulse-wa 2s infinite;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* ===== NOTIFICATION ===== */
+        .notification {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            background: var(--secondary);
+            border-left: 4px solid var(--primary);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            z-index: 9999;
+            transform: translateX(120%);
+            transition: transform 0.4s ease;
+            max-width: 300px;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        @keyframes pulse-wa {
+            0%, 100% { box-shadow: 0 5px 20px rgba(37,211,102,0.4); }
+            50% { box-shadow: 0 5px 30px rgba(37,211,102,0.7); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-stats { display: none; }
+            .about-grid { grid-template-columns: 1fr; gap: 50px; }
+            .booking-grid { grid-template-columns: 1fr; gap: 50px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+            .gallery-item:first-child { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(4) { grid-column: span 1; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 15px 5%; }
+            .nav-links { 
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: var(--secondary);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                font-size: 20px;
+            }
+            .nav-links.open { display: flex; }
+            .hamburger { display: flex; z-index: 1001; }
+            section { padding: 70px 5%; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .gallery-grid { 
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: repeat(3, 200px);
+            }
+            .about-features { grid-template-columns: 1fr; }
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .booking-form { padding: 30px 25px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 36px; }
+            .hero-btns { flex-direction: column; }
+            .gallery-grid { grid-template-columns: 1fr; height: auto; }
+            .gallery-item { height: 200px; }
+            .team-grid { grid-template-columns: 1fr; }
+            .testimonials-slider { grid-template-columns: 1fr; }
         }
     </style>
 </head>
-<body class="pb-12">
+<body>
 
-    <!-- Header -->
-    <header class="bg-navy text-white py-10 px-4 text-center shadow-lg border-b-4 border-[#C5A059]">
-        <h1 class="text-3xl md:text-4xl font-bold text-gold uppercase tracking-wider">Formulir Pendaftaran</h1>
-        <p class="mt-2 text-gray-300">Calon Kandidat Tokutei Ginou (Specified Skilled Worker)</p>
-    </header>
+    <!-- NOTIFICATION -->
+    <div class="notification" id="notification">
+        <h4>✅ Booking Berhasil!</h4>
+        <p>Kami akan menghubungi Anda dalam 24 jam.</p>
+    </div>
 
-    <main class="max-w-4xl mx-auto mt-10 px-4">
-        <form id="registrationForm" onsubmit="handleFormSubmit(event)">
-            
-            <!-- Data Pribadi -->
-            <div class="section-card">
-                <h2 class="text-xl font-bold mb-6 border-b-2 border-gold pb-2 text-navy flex items-center">
-                    <i class="fas fa-user-circle mr-2 text-gold"></i> Data Pribadi
-                </h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Nama Lengkap (Romaji)</label>
-                        <input type="text" id="namaRomaji" class="form-input" placeholder="Contoh: BUDI SANTOSO" required>
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <div class="logo-icon">✂️</div>
+            <div class="logo-text">
+                <h2>Glamour</h2>
+                <span>Beauty Salon</span>
+            </div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#services">Layanan</a></li>
+            <li><a href="#pricelist">Harga</a></li>
+            <li><a href="#gallery">Galeri</a></li>
+            <li><a href="#team">Tim Kami</a></li>
+            <li><a href="#booking" class="btn-nav">Booking</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">✨ Premium Beauty Experience</div>
+            <h1>
+                Tampil <span class="highlight">Cantik</span><br>
+                & Percaya Diri
+            </h1>
+            <p>
+                Salon kecantikan premium dengan layanan perawatan rambut, wajah, dan kuku terbaik. 
+                Dipercaya lebih dari 5.000+ pelanggan setia sejak 2015.
+            </p>
+            <div class="hero-btns">
+                <a href="#booking" class="btn-primary">📅 Booking Sekarang</a>
+                <a href="#services" class="btn-outline">Lihat Layanan →</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-card">
+                <h3>5K+</h3>
+                <p>Pelanggan Puas</p>
+            </div>
+            <div class="stat-card">
+                <h3>8+</h3>
+                <p>Tahun Pengalaman</p>
+            </div>
+            <div class="stat-card">
+                <h3>15+</h3>
+                <p>Stylist Profesional</p>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="arrow"></div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="about-grid">
+            <div class="about-image reveal">
+                <div class="about-img-main">💇‍♀️</div>
+                <div class="about-badge-img">
+                    <h3>8+</h3>
+                    <p>Tahun Melayani</p>
+                </div>
+            </div>
+            <div class="about-content reveal">
+                <span class="section-tag">✦ Tentang Kami</span>
+                <h2>Keindahan adalah <em>Seni</em>, Kami Ahlinya</h2>
+                <div class="divider" style="margin: 0 0 20px 0;"></div>
+                <p>
+                    Glamour Beauty Salon hadir sejak 2015 dengan misi memberikan pengalaman kecantikan 
+                    terbaik. Kami percaya setiap wanita berhak tampil cantik dan percaya diri.
+                </p>
+                <p>
+                    Dengan tim stylist berpengalaman yang terlatih secara internasional dan menggunakan 
+                    produk-produk premium berkualitas tinggi, kami siap mewujudkan penampilan impian Anda.
+                </p>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="check">✓</div>
+                        <span>Stylist Bersertifikat</span>
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Nama Lengkap (Kana)</label>
-                        <input type="text" id="namaKana" class="form-input" placeholder="Contoh: ブディ サントソ" required>
+                    <div class="feature-item">
+                        <div class="check">✓</div>
+                        <span>Produk Premium</span>
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Tanggal Lahir</label>
-                        <input type="date" id="tglLahir" class="form-input" required>
+                    <div class="feature-item">
+                        <div class="check">✓</div>
+                        <span>Higienis & Nyaman</span>
                     </div>
+                    <div class="feature-item">
+                        <div class="check">✓</div>
+                        <span>Harga Terjangkau</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="check">✓</div>
+                        <span>Konsultasi Gratis</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="check">✓</div>
+                        <span>Garansi Kepuasan</span>
+                    </div>
+                </div>
+                <a href="#booking" class="btn-primary" style="margin-top:20px;">Booking Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="section-header reveal">
+            <span class="section-tag">✦ Layanan Kami</span>
+            <h2>Semua Yang Anda<br>Butuhkan di Sini</h2>
+            <div class="divider"></div>
+            <p>Dari perawatan rambut hingga kecantikan tubuh, kami menyediakan layanan lengkap untuk memanjakan Anda.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-icon">✂️</div>
+                <h3>Potong & Styling</h3>
+                <p>Dapatkan potongan rambut yang sempurna sesuai bentuk wajah dan kepribadian Anda dari tangan stylist profesional kami.</p>
+                <div class="service-price">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700">Golongan Darah</label>
-                        <select id="golDarah" class="form-input">
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="AB">AB</option>
-                            <option value="O">O</option>
+                        <div class="price">Rp 75K <span>mulai dari</span></div>
+                    </div>
+                    <a href="#booking" class="service-link">Booking →</a>
+                </div>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">🎨</div>
+                <h3>Pewarnaan Rambut</h3>
+                <p>Ekspresikan diri Anda dengan warna rambut yang stunning. Tersedia berbagai teknik: balayage, highlight, ombre, dan lebih banyak lagi.</p>
+                <div class="service-price">
+                    <div>
+                        <div class="price">Rp 250K <span>mulai dari</span></div>
+                    </div>
+                    <a href="#booking" class="service-link">Booking →</a>
+                </div>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">💆‍♀️</div>
+                <h3>Creambath & Spa</h3>
+                <p>Manjakan rambut Anda dengan treatment creambath mewah yang menutrisi, melembabkan, dan menguatkan rambut dari dalam.</p>
+                <div class="service-price">
+                    <div>
+                        <div class="price">Rp 120K <span>mulai dari</span></div>
+                    </div>
+                    <a href="#booking" class="service-link">Booking →</a>
+                </div>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">🌿</div>
+                <h3>Keratin & Smoothing</h3>
+                <p>Dapatkan rambut lurus sempurna, halus, dan berkilau dengan treatment keratin & smoothing tahan lama hingga 6 bulan.</p>
+                <div class="service-price">
+                    <div>
+                        <div class="price">Rp 350K <span>mulai dari</span></div>
+                    </div>
+                    <a href="#booking" class="service-link">Booking →</a>
+                </div>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">💅</div>
+                <h3>Nail Art & Manicure</h3>
+                <p>Sempurnakan penampilan Anda dengan nail art kreatif dan layanan manicure-pedicure menggunakan produk berkualitas tinggi.</p>
+                <div class="service-price">
+                    <div>
+                        <div class="price">Rp 85K <span>mulai dari</span></div>
+                    </div>
+                    <a href="#booking" class="service-link">Booking →</a>
+                </div>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">✨</div>
+                <h3>Makeup & Rias Wajah</h3>
+                <p>Tampil memukau di hari spesial Anda dengan layanan makeup profesional untuk wisuda, pernikahan, dan acara penting lainnya.</p>
+                <div class="service-price">
+                    <div>
+                        <div class="price">Rp 200K <span>mulai dari</span></div>
+                    </div>
+                    <a href="#booking" class="service-link">Booking →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICE LIST -->
+    <section class="pricelist" id="pricelist">
+        <div class="section-header reveal">
+            <span class="section-tag">✦ Daftar Harga</span>
+            <h2 style="color:white;">Harga Transparan,<br>Kualitas Terjamin</h2>
+            <div class="divider"></div>
+            <p style="color:rgba(255,255,255,0.6);">Semua harga sudah termasuk pajak dan tidak ada biaya tersembunyi.</p>
+        </div>
+
+        <div class="price-tabs">
+            <button class="tab-btn active" onclick="showTab('rambut', this)">💇 Rambut</button>
+            <button class="tab-btn" onclick="showTab('warna', this)">🎨 Pewarnaan</button>
+            <button class="tab-btn" onclick="showTab('kecantikan', this)">✨ Kecantikan</button>
+            <button class="tab-btn" onclick="showTab('kuku', this)">💅 Kuku</button>
+        </div>
+
+        <div class="price-table active" id="rambut">
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Potong Rambut Wanita</div>
+                    <div class="price-item-desc">Keramas + Blow + Styling</div>
+                </div>
+                <div class="price-item-price">Rp 75.000</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Potong Rambut Pria</div>
+                    <div class="price-item-desc">Keramas + Styling</div>
+                </div>
+                <div class="price-item-price">Rp 50.000</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Creambath</div>
+                    <div class="price-item-desc">Masker + Pijat Kepala + Blow</div>
+                </div>
+                <div class="price-item-price">Rp 120.000</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Hair Mask Treatment</div>
+                    <div class="price-item-desc">Deep Conditioning + Steam</div>
+                </div>
+                <div class="price-item-price">Rp 150.000</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Smoothing</div>
+                    <div class="price-item-desc">Tahan 3-6 bulan</div>
+                </div>
+                <div class="price-item-price">Rp 350.000+</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Keratin Treatment</div>
+                    <div class="price-item-desc">Anti-frizz + Shiny</div>
+                </div>
+                <div class="price-item-price">Rp 450.000+</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Rebonding</div>
+                    <div class="price-item-desc">Lurus Permanen</div>
+                </div>
+                <div class="price-item-price">Rp 400.000+</div>
+            </div>
+        </div>
+
+        <div class="price-table" id="warna">
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Cat Rambut (1 Warna)</div>
+                    <div class="price-item-desc">Pendek / Medium / Panjang</div>
+                </div>
+                <div class="price-item-price">Rp 250.000+</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Highlight</div>
+                    <div class="price-item-desc">Foil Highlight Classic</div>
+                </div>
+                <div class="price-item-price">Rp 350.000+</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Balayage</div>
+                    <div class="price-item-desc">Natural Sun-kissed Look</div>
+                </div>
+                <div class="price-item-price">Rp 500.000+</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Ombre</div>
+                    <div class="price-item-desc">2 Tone Color Blend</div>
+                </div>
+                <div class="price-item-price">Rp 450.000+</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Global Bleaching</div>
+                    <div class="price-item-desc">Full Blonde Treatment</div>
+                </div>
+                <div class="price-item-price">Rp 600.000+</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Color Toning</div>
+                    <div class="price-item-desc">After Bleach Color</div>
+                </div>
+                <div class="price-item-price">Rp 200.000+</div>
+            </div>
+        </div>
+
+        <div class="price-table" id="kecantikan">
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Makeup Wisuda / Event</div>
+                    <div class="price-item-desc">Full Face Professional</div>
+                </div>
+                <div class="price-item-price">Rp 200.000</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Makeup Pengantin</div>
+                    <div class="price-item-desc">Riasan + Sanggul Tradisional</div>
+                </div>
+                <div class="price-item-price">Rp 1.500.000+</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Facial Treatment</div>
+                    <div class="price-item-desc">Deep Cleansing + Masker</div>
+                </div>
+                <div class="price-item-price">Rp 150.000</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Eyebrow Shaping</div>
+                    <div class="price-item-desc">Threading / Waxing</div>
+                </div>
+                <div class="price-item-price">Rp 35.000</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Eyelash Extension</div>
+                    <div class="price-item-desc">Natural / Volume / Mega</div>
+                </div>
+                <div class="price-item-price">Rp 200.000+</div>
+            </div>
+        </div>
+
+        <div class="price-table" id="kuku">
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Manicure</div>
+                    <div class="price-item-desc">Perawatan + Cat Kuku</div>
+                </div>
+                <div class="price-item-price">Rp 60.000</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Pedicure</div>
+                    <div class="price-item-desc">Rendam + Scrub + Cat</div>
+                </div>
+                <div class="price-item-price">Rp 75.000</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Manicure + Pedicure</div>
+                    <div class="price-item-desc">Paket Hemat Komplit</div>
+                </div>
+                <div class="price-item-price">Rp 120.000</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Nail Art</div>
+                    <div class="price-item-desc">Per Nail / Design Custom</div>
+                </div>
+                <div class="price-item-price">Rp 5.000+</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Gel Nails</div>
+                    <div class="price-item-desc">Tahan hingga 3 minggu</div>
+                </div>
+                <div class="price-item-price">Rp 150.000</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="price-item-name">Nail Extension</div>
+                    <div class="price-item-desc">Acrylics / Gel Extension</div>
+                </div>
+                <div class="price-item-price">Rp 200.000+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery" id="gallery">
+        <div class="section-header reveal">
+            <span class="section-tag">✦ Galeri Kami</span>
+            <h2>Karya Terbaik<br>Dari Tangan Kami</h2>
+            <div class="divider"></div>
+            <p>Lihat transformasi nyata pelanggan kami yang membuktikan kualitas layanan premium kami.</p>
+        </div>
+        <div class="gallery-grid reveal">
+            <div class="gallery-item">
+                <div class="gallery-bg">💇‍♀️</div>
+                <div class="gallery-overlay"><span>Hair Styling</span></div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-bg">🎨</div>
+                <div class="gallery-overlay"><span>Hair Coloring</span></div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-bg">💅</div>
+                <div class="gallery-overlay"><span>Nail Art</span></div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-bg">✨</div>
+                <div class="gallery-overlay"><span>Makeup</span></div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-bg">🌿</div>
+                <div class="gallery-overlay"><span>Hair Treatment</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header reveal">
+            <span class="section-tag">✦ Testimoni</span>
+            <h2>Apa Kata Pelanggan<br>Setia Kami</h2>
+            <div class="divider"></div>
+            <p>Kepuasan Anda adalah prioritas utama kami. Inilah cerita nyata dari mereka.</p>
+        </div>
+        <div class="testimonials-slider">
+            <div class="testimonial-card reveal">
+                <div class="quote-mark">"</div>
+                <div class="stars">★★★★★</div>
+                <p>"Sudah 3 tahun langganan di Glamour Salon. Hasilnya selalu memuaskan! Stylist-nya profesional dan selalu mengikuti tren terbaru. Sangat recommended!"</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">👩</div>
+                    <div class="reviewer-info">
+                        <h4>Siti Rahayu</h4>
+                        <span>Pelanggan Setia sejak 2021</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="quote-mark">"</div>
+                <div class="stars">★★★★★</div>
+                <p>"Hasil balayage-nya luar biasa! Persis seperti yang saya minta. Tempatnya juga nyaman, bersih, dan staf-nya ramah. Pasti akan balik lagi!"</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">👩‍🦱</div>
+                    <div class="reviewer-info">
+                        <h4>Dewi Kusuma</h4>
+                        <span>Pelanggan sejak 2022</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="quote-mark">"</div>
+                <div class="stars">★★★★★</div>
+                <p>"Makeup pengantin saya ditangani Glamour Salon dan hasilnya AMAZING! Semua tamu memuji penampilan saya. Terima kasih sudah membuat hari istimewa saya sempurna!"</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">👰</div>
+                    <div class="reviewer-info">
+                        <h4>Rina Maharani</h4>
+                        <span>Pengantin • Juni 2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="team" id="team">
+        <div class="section-header reveal">
+            <span class="section-tag">✦ Tim Kami</span>
+            <h2>Bertemu Stylist<br>Profesional Kami</h2>
+            <div class="divider"></div>
+            <p>Tim kami terdiri dari para ahli kecantikan berpengalaman dan bersertifikat internasional.</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card reveal">
+                <div class="team-photo">
+                    👩‍🦰
+                    <div class="team-social">
+                        <a href="#">📸</a>
+                        <a href="#">💬</a>
+                        <a href="#">📱</a>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>Anisa Putri</h3>
+                    <span>Senior Hair Stylist</span>
+                </div>
+            </div>
+            <div class="team-card reveal">
+                <div class="team-photo" style="background: linear-gradient(135deg, #8B6914, #2c1810);">
+                    👩‍🦳
+                    <div class="team-social">
+                        <a href="#">📸</a>
+                        <a href="#">💬</a>
+                        <a href="#">📱</a>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>Budi Santoso</h3>
+                    <span>Color Specialist</span>
+                </div>
+            </div>
+            <div class="team-card reveal">
+                <div class="team-photo" style="background: linear-gradient(135deg, #4a2818, #c9a96e);">
+                    👩
+                    <div class="team-social">
+                        <a href="#">📸</a>
+                        <a href="#">💬</a>
+                        <a href="#">📱</a>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>Maya Sari</h3>
+                    <span>Makeup Artist</span>
+                </div>
+            </div>
+            <div class="team-card reveal">
+                <div class="team-photo" style="background: linear-gradient(135deg, #2c1810, #a07840);">
+                    💆‍♀️
+                    <div class="team-social">
+                        <a href="#">📸</a>
+                        <a href="#">💬</a>
+                        <a href="#">📱</a>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>Lena Wijaya</h3>
+                    <span>Nail Art Expert</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section class="booking" id="booking">
+        <div class="booking-grid">
+            <div class="booking-info reveal">
+                <span class="section-tag">✦ Booking Online</span>
+                <h2>Reservasi <em>Mudah</em>,<br>Pelayanan Terbaik</h2>
+                <p>
+                    Booking online sekarang dan dapatkan konfirmasi instan. 
+                    Tidak perlu antri lama, slot Anda sudah terjamin!
+                </p>
+                <div class="booking-contacts">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong style="color:white;">Lokasi</strong><br>
+                            Jl. Sudirman No. 45, Jakarta Pusat
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕐</div>
+                        <div>
+                            <strong style="color:white;">Jam Operasional</strong><br>
+                            Senin – Sabtu: 09.00 – 20.00<br>
+                            Minggu: 10.00 – 18.00
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong style="color:white;">Telepon / WhatsApp</strong><br>
+                            +62 812-3456-7890
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong style="color:white;">Email</strong><br>
+                            info@glamoursalon.id
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-form reveal">
+                <h3>📅 Buat Janji Sekarang</h3>
+                <form id="bookingForm" onsubmit="submitBooking(event)">
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input type="text" placeholder="Masukkan nama Anda" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nomor WhatsApp</label>
+                            <input type="tel" placeholder="08xx-xxxx-xxxx" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="email@anda.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Layanan</label>
+                        <select required>
+                            <option value="">-- Pilih Layanan --</option>
+                            <option>✂️ Potong & Styling Rambut</option>
+                            <option>🎨 Pewarnaan Rambut</option>
+                            <option>💆 Creambath & Hair Spa</option>
+                            <option>🌿 Keratin & Smoothing</option>
+                            <option>💅 Nail Art & Manicure</option>
+                            <option>✨ Makeup & Rias Wajah</option>
+                            <option>🌸 Makeup Pengantin</option>
                         </select>
                     </div>
-                    <div class="md:col-span-2">
-                        <label class="block text-sm font-medium text-gray-700">Alamat Lengkap</label>
-                        <textarea id="alamat" class="form-input" rows="3" required></textarea>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Tanggal</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Jam</label>
+                            <select required>
+                                <option value="">-- Pilih Jam --</option>
+                                <option>09:00</option>
+                                <option>10:00</option>
+                                <option>11:00</option>
+                                <option>12:00</option>
+                                <option>13:00</option>
+                                <option>14:00</option>
+                                <option>15:00</option>
+                                <option>16:00</option>
+                                <option>17:00</option>
+                                <option>18:00</option>
+                                <option>19:00</option>
+                            </select>
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Status Pernikahan</label>
-                        <select id="statusNikah" class="form-input">
-                            <option value="Belum Menikah">Belum Menikah</option>
-                            <option value="Menikah">Menikah</option>
-                            <option value="Cerai">Cerai</option>
+                    <div class="form-group">
+                        <label>Stylist (Opsional)</label>
+                        <select>
+                            <option value="">-- Pilih Stylist (Bebas) --</option>
+                            <option>Anisa Putri - Senior Stylist</option>
+                            <option>Budi Santoso - Color Specialist</option>
+                            <option>Maya Sari - Makeup Artist</option>
+                            <option>Lena Wijaya - Nail Expert</option>
                         </select>
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Agama</label>
-                        <input type="text" id="agama" class="form-input" required>
+                    <button type="submit" class="btn-submit">
+                        ✨ Konfirmasi Booking Sekarang
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon">✂️</div>
+                    <div class="logo-text">
+                        <h2>Glamour</h2>
+                        <span>Beauty Salon</span>
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Buta Warna</label>
-                        <div class="mt-3 flex space-x-4">
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="butaWarna" value="Ya" class="text-gold">
-                                <span class="ml-2">Ya</span>
-                            </label>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="butaWarna" value="Tidak" checked class="text-gold">
-                                <span class="ml-2">Tidak</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Tinggi & Berat Badan</label>
-                        <input type="text" id="tinggiBerat" class="form-input" placeholder="Contoh: 170cm / 65kg" required>
-                    </div>
+                </a>
+                <p>
+                    Salon kecantikan premium yang hadir untuk memenuhi kebutuhan kecantikan Anda. 
+                    Kami berkomitmen memberikan pelayanan terbaik dengan hasil yang memukau.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link">📸</a>
+                    <a href="#" class="social-link">👥</a>
+                    <a href="#" class="social-link">🐦</a>
+                    <a href="#" class="social-link">📺</a>
+                    <a href="#" class="social-link">💬</a>
                 </div>
             </div>
 
-            <!-- Dokumen & Legalitas -->
-            <div class="section-card">
-                <h2 class="text-xl font-bold mb-6 border-b-2 border-gold pb-2 text-navy flex items-center">
-                    <i class="fas fa-id-card mr-2 text-gold"></i> Dokumen & Legalitas
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Nomor Passport</label>
-                        <input type="text" id="passport" class="form-input" placeholder="Masukkan nomor atau tulis 'Tidak ada'">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">SIM Mobil (SIM A)</label>
-                        <select id="simMobil" class="form-input">
-                            <option value="Ada">Ada</option>
-                            <option value="Tidak Ada">Tidak Ada</option>
-                        </select>
-                    </div>
-                </div>
+            <div class="footer-col">
+                <h4>Menu</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#services">Layanan</a></li>
+                    <li><a href="#pricelist">Daftar Harga</a></li>
+                    <li><a href="#gallery">Galeri</a></li>
+                    <li><a href="#team">Tim Kami</a></li>
+                    <li><a href="#booking">Booking</a></li>
+                </ul>
             </div>
 
-            <!-- Riwayat Pendidikan -->
-            <div class="section-card">
-                <h2 class="text-xl font-bold mb-6 border-b-2 border-gold pb-2 text-navy flex items-center">
-                    <i class="fas fa-graduation-cap mr-2 text-gold"></i> Riwayat Pendidikan
-                </h2>
-                <div class="space-y-4">
-                    <div class="grid grid-cols-3 gap-4 items-end">
-                        <div class="col-span-2">
-                            <label class="block text-sm font-medium text-gray-700">SD (Nama Sekolah)</label>
-                            <input type="text" id="sdNama" class="form-input">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700">Tahun Lulus</label>
-                            <input type="number" id="sdLulus" class="form-input" placeholder="YYYY">
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-3 gap-4 items-end">
-                        <div class="col-span-2">
-                            <label class="block text-sm font-medium text-gray-700">SMP (Nama Sekolah)</label>
-                            <input type="text" id="smpNama" class="form-input">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700">Tahun Lulus</label>
-                            <input type="number" id="smpLulus" class="form-input" placeholder="YYYY">
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-3 gap-4 items-end">
-                        <div class="col-span-2">
-                            <label class="block text-sm font-medium text-gray-700">SMA/SMK (Nama Sekolah)</label>
-                            <input type="text" id="smaNama" class="form-input">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700">Tahun Lulus</label>
-                            <input type="number" id="smaLulus" class="form-input" placeholder="YYYY">
-                        </div>
-                    </div>
-                </div>
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Potong Rambut</a></li>
+                    <li><a href="#">Pewarnaan</a></li>
+                    <li><a href="#">Smoothing</a></li>
+                    <li><a href="#">Creambath</a></li>
+                    <li><a href="#">Nail Art</a></li>
+                    <li><a href="#">Makeup</a></li>
+                </ul>
             </div>
 
-            <!-- Pengalaman Kerja -->
-            <div class="section-card">
-                <h2 class="text-xl font-bold mb-6 border-b-2 border-gold pb-2 text-navy flex items-center">
-                    <i class="fas fa-briefcase mr-2 text-gold"></i> Pengalaman Kerja
-                </h2>
-                <div class="space-y-4">
-                    <label class="block text-sm font-medium text-gray-700">Detail Pengalaman (Nama Perusahaan, Bidang, Periode)</label>
-                    <textarea id="pengalaman" class="form-input" rows="4" placeholder="Contoh: PT. Maju Jaya - Bidang Manufaktur (Januari 2020 - Desember 2022)"></textarea>
-                </div>
+            <div class="footer-col">
+                <h4>Jam Buka</h4>
+                <ul class="footer-hours">
+                    <li><span>Senin - Jumat</span><span>09:00 - 20:00</span></li>
+                    <li><span>Sabtu</span><span>08:00 - 21:00</span></li>
+                    <li><span>Minggu</span><span>10:00 - 18:00</span></li>
+                    <li><span>Hari Libur</span><span>10:00 - 17:00</span></li>
+                </ul>
             </div>
+        </div>
 
-            <!-- Upload Dokumen -->
-            <div class="section-card">
-                <h2 class="text-xl font-bold mb-6 border-b-2 border-gold pb-2 text-navy flex items-center">
-                    <i class="fas fa-file-upload mr-2 text-gold"></i> Lampiran (Scan Dokumen)
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Scan Passport</label>
-                        <input type="file" class="form-input text-xs">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Scan Sertifikat SSW</label>
-                        <input type="file" class="form-input text-xs">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Scan Senmonkyuu (Opsional)</label>
-                        <input type="file" class="form-input text-xs">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Scan JLPT / JFT Basic A2</label>
-                        <input type="file" class="form-input text-xs">
-                    </div>
-                </div>
-                <p class="text-xs text-red-600 mt-4 italic">* Pastikan file terbaca dengan jelas (Maks 2MB per file)</p>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="flex flex-col md:flex-row gap-4 mb-10">
-                <button type="button" onclick="sendToWhatsApp()" class="flex-1 bg-green-600 text-white font-bold py-4 px-6 rounded-lg shadow-lg btn-hover flex items-center justify-center">
-                    <i class="fab fa-whatsapp mr-2 text-2xl"></i> Kirim via WhatsApp
-                </button>
-                <button type="button" onclick="sendToEmail()" class="flex-1 bg-maroon text-white font-bold py-4 px-6 rounded-lg shadow-lg btn-hover flex items-center justify-center">
-                    <i class="fas fa-envelope mr-2 text-2xl"></i> Kirim via Email
-                </button>
-            </div>
-            
-        </form>
-    </main>
-
-    <footer class="bg-navy text-gray-400 py-6 text-center text-sm">
-        <p>&copy; 2026 Portal Pendaftaran Tokutei Ginou.</p>
+        <div class="footer-bottom">
+            <p>© 2024 <span>Glamour Beauty Salon</span>. All Rights Reserved.</p>
+            <p>Made with <span>♥</span> for beauty lovers</p>
+        </div>
     </footer>
 
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/6281234567890?text=Halo, saya ingin booking layanan di Glamour Beauty Salon" 
+       class="whatsapp-float" 
+       target="_blank" 
+       title="Chat WhatsApp">
+        💬
+    </a>
+
+    <!-- JAVASCRIPT -->
     <script>
-        function getFormData() {
-            const data = {
-                namaRomaji: document.getElementById('namaRomaji').value,
-                namaKana: document.getElementById('namaKana').value,
-                tglLahir: document.getElementById('tglLahir').value,
-                alamat: document.getElementById('alamat').value,
-                golDarah: document.getElementById('golDarah').value,
-                statusNikah: document.getElementById('statusNikah').value,
-                agama: document.getElementById('agama').value,
-                butaWarna: document.querySelector('input[name="butaWarna"]:checked').value,
-                tinggiBerat: document.getElementById('tinggiBerat').value,
-                passport: document.getElementById('passport').value,
-                simMobil: document.getElementById('simMobil').value,
-                sd: `${document.getElementById('sdNama').value} (Lulus: ${document.getElementById('sdLulus').value})`,
-                smp: `${document.getElementById('smpNama').value} (Lulus: ${document.getElementById('smpLulus').value})`,
-                sma: `${document.getElementById('smaNama').value} (Lulus: ${document.getElementById('smaLulus').value})`,
-                pengalaman: document.getElementById('pengalaman').value
-            };
-            return data;
-        }
-
-        function formatMessage(data) {
-            return `*PENDAFTARAN TOKUTEI GINOU*%0A%0A` +
-                   `*Data Pribadi*%0A` +
-                   `- Nama (Romaji): ${data.namaRomaji}%0A` +
-                   `- Nama (Kana): ${data.namaKana}%0A` +
-                   `- Tgl Lahir: ${data.tglLahir}%0A` +
-                   `- Alamat: ${data.alamat}%0A` +
-                   `- Gol Darah: ${data.golDarah}%0A` +
-                   `- Status: ${data.statusNikah}%0A` +
-                   `- Agama: ${data.agama}%0A` +
-                   `- Buta Warna: ${data.butaWarna}%0A` +
-                   `- Tinggi/Berat: ${data.tinggiBerat}%0A%0A` +
-                   `*Dokumen*%0A` +
-                   `- Passport: ${data.passport}%0A` +
-                   `- SIM Mobil: ${data.simMobil}%0A%0A` +
-                   `*Pendidikan*%0A` +
-                   `- SD: ${data.sd}%0A` +
-                   `- SMP: ${data.smp}%0A` +
-                   `- SMA: ${data.sma}%0A%0A` +
-                   `*Pengalaman Kerja*%0A` +
-                   `${data.pengalaman}`;
-        }
-
-        function sendToWhatsApp() {
-            const data = getFormData();
-            if(!data.namaRomaji) {
-                alert("Mohon isi Nama Lengkap terlebih dahulu");
-                return;
+        // ===== NAVBAR SCROLL =====
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
-            const phone = "+6281353900199"; // GANTI DENGAN NOMOR TUJUAN
-            const message = formatMessage(data);
-            window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${message}`, '_blank');
+        });
+
+        // ===== MOBILE MENU =====
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            navLinks.classList.toggle('open');
+            hamburger.style.opacity = navLinks.classList.contains('open') ? '0' : '1';
         }
 
-        function sendToEmail() {
-            const data = getFormData();
-            if(!data.namaRomaji) {
-                alert("Mohon isi Nama Lengkap terlebih dahulu");
-                return;
-            }
-            const email = "takaitorii@gmail.com"; // GANTI DENGAN EMAIL TUJUAN
-            const subject = `Pendaftaran Tokutei Ginou - ${data.namaRomaji}`;
-            const body = formatMessage(data).replace(/%0A/g, '\r\n');
-            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('open');
+            });
+        });
+
+        // ===== PRICE TABS =====
+        function showTab(tabId, btn) {
+            document.querySelectorAll('.price-table').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            btn.classList.add('active');
         }
+
+        // ===== SCROLL REVEAL =====
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => observer.observe(el));
+
+        // ===== BOOKING FORM =====
+        function submitBooking(e) {
+            e.preventDefault();
+            const notification = document.getElementById('notification');
+            notification.classList.add('show');
+            document.getElementById('bookingForm').reset();
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 4000);
+        }
+
+        // ===== SET MIN DATE =====
+        const dateInput = document.querySelector('input[type="date"]');
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        }
+
+        // ===== SMOOTH ACTIVE NAV =====
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            document.querySelectorAll('.nav-links a').forEach(a => {
+                a.style.color = '';
+                if (a.getAttribute('href') === `#${current}`) {
+                    a.style.color = 'var(--primary)';
+                }
+            });
+        });
+
+        // ===== COUNTER ANIMATION =====
+        function animateCounter(el, target, suffix = '') {
+            let count = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                count += increment;
+                if (count >= target) {
+                    count = target;
+                    clearInterval(timer);
+                }
+                el.textContent = Math.floor(count) + suffix;
+            }, 40);
+        }
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const h3s = entry.target.querySelectorAll('.stat-card h3');
+                    animateCounter(h3s[0], 5, 'K+');
+                    animateCounter(h3s[1], 8, '+');
+                    animateCounter(h3s[2], 15, '+');
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const heroStats = document.querySelector('.hero-stats');
+        if (heroStats) statsObserver.observe(heroStats);
     </script>
 </body>
 </html>

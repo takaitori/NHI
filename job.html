@@ -2937,4 +2937,367 @@ const kanjiDB = [
         strokes: 7, category: "body", jlpt: "N3",
         vocab: ["足りる（たりる）cukup", "不足（ふそく）kekurangan", "満足（まんぞく）kepuasan", "遠足（えんそく）piknik sekolah"],
         examples: [
-            { jp: "お金が足りません。", reading: "おかねがたりません。", id: "Uang
+            { jp: "お金が足りません。", reading: "おかねがたりません。", id: "Uang  tidak cukup." },
+            { jp: "足が痛いです。", reading: "あしがいたいです。", id: "Kaki saya sakit." },
+            { jp: "満足しています。", reading: "まんぞくしています。", id: "Saya puas." }
+        ]
+    },
+    {
+        kanji: "耳", meaning: "Telinga", onyomi: "ジ", kunyomi: "みみ",
+        strokes: 6, category: "body", jlpt: "N3",
+        vocab: ["耳鳴り（みみなり）telinga berdenging", "耳科（じか）dokter THT", "耳元（みみもと）dekat telinga"],
+        examples: [
+            { jp: "耳が聞こえません。", reading: "みみがきこえません。", id: "Telinga saya tidak bisa mendengar." },
+            { jp: "耳鳴りがします。", reading: "みみなりがします。", id: "Telinga saya berdenging." },
+            { jp: "耳元でささやきました。", reading: "みみもとでささやきました。", id: "Dia berbisik di dekat telinga saya." }
+        ]
+    },
+    {
+        kanji: "鼻", meaning: "Hidung", onyomi: "ビ", kunyomi: "はな",
+        strokes: 14, category: "body", jlpt: "N3",
+        vocab: ["鼻水（はなみず）ingus", "鼻血（はなぢ）mimisan", "高鼻（たかはな）hidung mancung"],
+        examples: [
+            { jp: "鼻が詰まっています。", reading: "はながつまっています。", id: "Hidung saya tersumbat." },
+            { jp: "鼻水が出ます。", reading: "はなみずがでます。", id: "Hidung saya meler." },
+            { jp: "いい匂いがしますね。", reading: "いいにおいがしますね。", id: "Ada bau yang enak ya." }
+        ]
+    },
+    {
+        kanji: "歯", meaning: "Gigi", onyomi: "シ", kunyomi: "は",
+        strokes: 12, category: "body", jlpt: "N3",
+        vocab: ["歯医者（はいしゃ）dokter gigi", "歯磨き（はみがき）sikat gigi", "虫歯（むしば）gigi berlubang"],
+        examples: [
+            { jp: "歯医者に行く必要があります。", reading: "はいしゃにいくひつようがあります。", id: "Saya perlu pergi ke dokter gigi." },
+            { jp: "毎食後歯磨きをします。", reading: "まいしょくごはみがきをします。", id: "Saya sikat gigi setiap setelah makan." },
+            { jp: "虫歯が痛いです。", reading: "むしばがいたいです。", id: "Gigi berlubang saya sakit." }
+        ]
+    },
+    {
+        kanji: "血", meaning: "Darah", onyomi: "ケツ", kunyomi: "ち",
+        strokes: 6, category: "body", jlpt: "N3",
+        vocab: ["血液（けつえき）darah", "血圧（けつあつ）tekanan darah", "出血（しゅっけつ）pendarahan", "血型（ちがた）golongan darah"],
+        examples: [
+            { jp: "血液型は何ですか？", reading: "けつえきがたはなんですか？", id: "Golongan darah kamu apa?" },
+            { jp: "血圧が高いです。", reading: "けつあつがたかいです。", id: "Tekanan darah saya tinggi." },
+            { jp: "出血が止まりません。", reading: "しゅっけつがとまりません。", id: "Pendarahan tidak berhenti." }
+        ]
+    },
+    {
+        kanji: "骨", meaning: "Tulang", onyomi: "コツ", kunyomi: "ほね",
+        strokes: 10, category: "body", jlpt: "N3",
+        vocab: ["骨折（こっせつ）patah tulang", "骨格（こっかく）kerangka tubuh", "骨董品（こっとうひん）barang antik"],
+        examples: [
+            { jp: "骨折しました。", reading: "こっせつしました。", id: "Saya patah tulang." },
+            { jp: "カルシウムは骨に必要です。", reading: "かるしうむはほねにひつようです。", id: "Kalsium diperlukan untuk tulang." },
+            { jp: "骨董品を集めています。", reading: "こっとうひんをあつめています。", id: "Saya mengoleksi barang antik." }
+        ]
+    },
+
+    // ===== SOCIETY 社会 =====
+    {
+        kanji: "国", meaning: "Negara", onyomi: "コク", kunyomi: "くに",
+        strokes: 8, category: "society", jlpt: "N3",
+        vocab: ["外国（がいこく）luar negeri", "国際（こくさい）internasional", "国民（こくみん）warga negara", "帰国（きこく）kembali ke negara asal"],
+        examples: [
+            { jp: "外国に住んでいます。", reading: "がいこくにすんでいます。", id: "Saya tinggal di luar negeri." },
+            { jp: "国際交流が大切です。", reading: "こくさいこうりゅうがたいせつです。", id: "Pertukaran internasional itu penting." },
+            { jp: "国民の声を聞いてください。", reading: "こくみんのこえをきいてください。", id: "Tolong dengarkan suara rakyat." }
+        ]
+    },
+    {
+        kanji: "社", meaning: "Perusahaan/Masyarakat", onyomi: "シャ", kunyomi: "やしろ",
+        strokes: 7, category: "society", jlpt: "N3",
+        vocab: ["会社（かいしゃ）perusahaan", "社会（しゃかい）masyarakat", "社長（しゃちょう）direktur", "神社（じんじゃ）kuil Shinto"],
+        examples: [
+            { jp: "会社で働いています。", reading: "かいしゃではたらいています。", id: "Saya bekerja di perusahaan." },
+            { jp: "社会問題について考えます。", reading: "しゃかいもんだいについてかんがえます。", id: "Saya memikirkan masalah sosial." },
+            { jp: "神社にお参りしました。", reading: "じんじゃにおまいりしました。", id: "Saya berdoa di kuil Shinto." }
+        ]
+    },
+    {
+        kanji: "政", meaning: "Politik/Pemerintahan", onyomi: "セイ, ショウ", kunyomi: "まつりごと",
+        strokes: 9, category: "society", jlpt: "N3",
+        vocab: ["政治（せいじ）politik", "政府（せいふ）pemerintah", "行政（ぎょうせい）administrasi pemerintahan"],
+        examples: [
+            { jp: "政治に興味があります。", reading: "せいじにきょうみがあります。", id: "Saya tertarik dengan politik." },
+            { jp: "政府の方針が変わりました。", reading: "せいふのほうしんがかわりました。", id: "Kebijakan pemerintah berubah." },
+            { jp: "行政改革が必要です。", reading: "ぎょうせいかいかくがひつようです。", id: "Reformasi administrasi diperlukan." }
+        ]
+    },
+    {
+        kanji: "法", meaning: "Hukum/Metode", onyomi: "ホウ, ハッ", kunyomi: "-",
+        strokes: 8, category: "society", jlpt: "N3",
+        vocab: ["法律（ほうりつ）hukum/undang-undang", "方法（ほうほう）metode/cara", "文法（ぶんぽう）tata bahasa", "合法（ごうほう）legal"],
+        examples: [
+            { jp: "法律を守りましょう。", reading: "ほうりつをまもりましょう。", id: "Mari patuhi hukum." },
+            { jp: "良い方法を考えます。", reading: "よいほうほうをかんがえます。", id: "Saya memikirkan cara yang baik." },
+            { jp: "日本語の文法は難しいです。", reading: "にほんごのぶんぽうはむずかしいです。", id: "Tata bahasa Jepang sulit." }
+        ]
+    },
+    {
+        kanji: "税", meaning: "Pajak", onyomi: "ゼイ", kunyomi: "-",
+        strokes: 12, category: "society", jlpt: "N3",
+        vocab: ["税金（ぜいきん）pajak", "消費税（しょうひぜい）PPN/pajak konsumsi", "免税（めんぜい）bebas pajak", "納税（のうぜい）membayar pajak"],
+        examples: [
+            { jp: "税金を払いました。", reading: "ぜいきんをはらいました。", id: "Saya membayar pajak." },
+            { jp: "消費税は10%です。", reading: "しょうひぜいはじゅっぱーせんとです。", id: "Pajak konsumsi adalah 10%." },
+            { jp: "免税店で買いました。", reading: "めんぜいてんでかいました。", id: "Saya membeli di toko bebas pajak." }
+        ]
+    },
+    {
+        kanji: "選", meaning: "Memilih", onyomi: "セン", kunyomi: "えらぶ",
+        strokes: 15, category: "society", jlpt: "N3",
+        vocab: ["選挙（せんきょ）pemilihan umum", "選手（せんしゅ）atlet/pemain", "選択（せんたく）pilihan", "当選（とうせん）terpilih"],
+        examples: [
+            { jp: "選挙に参加しましょう。", reading: "せんきょにさんかしましょう。", id: "Mari berpartisipasi dalam pemilihan umum." },
+            { jp: "オリンピック選手を応援します。", reading: "おりんぴっくせんしゅをおうえんします。", id: "Saya mendukung atlet Olimpiade." },
+            { jp: "正しい選択をしてください。", reading: "ただしいせんたくをしてください。", id: "Tolong buat pilihan yang tepat." }
+        ]
+    },
+    {
+        kanji: "戦", meaning: "Perang/Bertarung", onyomi: "セン", kunyomi: "いくさ, たたかう",
+        strokes: 13, category: "society", jlpt: "N3",
+        vocab: ["戦争（せんそう）perang", "戦士（せんし）prajurit", "挑戦（ちょうせん）tantangan", "作戦（さくせん）strategi"],
+        examples: [
+            { jp: "戦争は良くないです。", reading: "せんそうはよくないです。", id: "Perang itu tidak baik." },
+            { jp: "新しいことに挑戦しましょう。", reading: "あたらしいことにちょうせんしましょう。", id: "Mari tantang hal baru." },
+            { jp: "作戦を立てました。", reading: "さくせんをたてました。", id: "Saya menyusun strategi." }
+        ]
+    },
+    {
+        kanji: "経", meaning: "Melewati/Ekonomi", onyomi: "ケイ, キョウ", kunyomi: "へる, たつ",
+        strokes: 11, category: "society", jlpt: "N3",
+        vocab: ["経済（けいざい）ekonomi", "経験（けいけん）pengalaman", "経営（けいえい）manajemen", "経由（けいゆ）melalui/transit"],
+        examples: [
+            { jp: "経済が成長しています。", reading: "けいざいがせいちょうしています。", id: "Ekonomi sedang berkembang." },
+            { jp: "海外での経験が役立ちます。", reading: "かいがいでのけいけんがやくだちます。", id: "Pengalaman di luar negeri berguna." },
+            { jp: "香港経由で来ました。", reading: "ほんこんけいゆできました。", id: "Saya datang melalui Hong Kong." }
+        ]
+    },
+    {
+        kanji: "議", meaning: "Diskusi/Sidang", onyomi: "ギ", kunyomi: "-",
+        strokes: 20, category: "society", jlpt: "N3",
+        vocab: ["会議（かいぎ）rapat", "議会（ぎかい）parlemen", "議論（ぎろん）diskusi/debat", "審議（しんぎ）pembahasan"],
+        examples: [
+            { jp: "今日会議があります。", reading: "きょうかいぎがあります。", id: "Hari ini ada rapat." },
+            { jp: "議会で法律が決まります。", reading: "ぎかいでほうりつがきまります。", id: "Undang-undang diputuskan di parlemen." },
+            { jp: "この問題について議論しましょう。", reading: "このもんだいについてぎろんしましょう。", id: "Mari berdiskusi tentang masalah ini." }
+        ]
+    },
+    {
+        kanji: "文", meaning: "Tulisan/Kalimat/Budaya", onyomi: "ブン, モン", kunyomi: "ふみ",
+        strokes: 4, category: "society", jlpt: "N3",
+        vocab: ["文化（ぶんか）budaya", "文章（ぶんしょう）paragraf/teks", "文学（ぶんがく）sastra", "作文（さくぶん）karangan"],
+        examples: [
+            { jp: "日本の文化に興味があります。", reading: "にほんのぶんかにきょうみがあります。", id: "Saya tertarik dengan budaya Jepang." },
+            { jp: "文章を書くのが得意です。", reading: "ぶんしょうをかくのがとくいです。", id: "Saya mahir menulis teks." },
+            { jp: "日本文学を読んでいます。", reading: "にほんぶんがくをよんでいます。", id: "Saya membaca sastra Jepang." }
+        ]
+    },
+
+    // ===== OBJECT 物 =====
+    {
+        kanji: "物", meaning: "Benda/Hal", onyomi: "ブツ, モツ", kunyomi: "もの",
+        strokes: 8, category: "object", jlpt: "N3",
+        vocab: ["食べ物（たべもの）makanan", "飲み物（のみもの）minuman", "建物（たてもの）bangunan", "荷物（にもつ）barang bawaan"],
+        examples: [
+            { jp: "食べ物を分けましょう。", reading: "たべものをわけましょう。", id: "Mari berbagi makanan." },
+            { jp: "建物が古いです。", reading: "たてものがふるいです。", id: "Bangunannya tua." },
+            { jp: "荷物が重いです。", reading: "にもつがおもいです。", id: "Barang bawaannya berat." }
+        ]
+    },
+    {
+        kanji: "本", meaning: "Buku/Asli", onyomi: "ホン", kunyomi: "もと",
+        strokes: 5, category: "object", jlpt: "N3",
+        vocab: ["本物（ほんもの）asli", "本棚（ほんだな）rak buku", "基本（きほん）dasar", "日本（にほん）Jepang"],
+        examples: [
+            { jp: "これは本物ですか？", reading: "これはほんものですか？", id: "Apakah ini asli?" },
+            { jp: "本棚に本がたくさんあります。", reading: "ほんだなにほんがたくさんあります。", id: "Ada banyak buku di rak buku." },
+            { jp: "基本から学びましょう。", reading: "きほんからまなびましょう。", id: "Mari belajar dari dasarnya." }
+        ]
+    },
+    {
+        kanji: "紙", meaning: "Kertas", onyomi: "シ", kunyomi: "かみ",
+        strokes: 10, category: "object", jlpt: "N3",
+        vocab: ["手紙（てがみ）surat", "新聞紙（しんぶんし）kertas koran", "折り紙（おりがみ）origami", "紙幣（しへい）uang kertas"],
+        examples: [
+            { jp: "手紙を書きました。", reading: "てがみをかきました。", id: "Saya menulis surat." },
+            { jp: "折り紙を折りましょう。", reading: "おりがみをおりましょう。", id: "Mari melipat origami." },
+            { jp: "紙幣を両替してください。", reading: "しへいをりょうがえしてください。", id: "Tolong tukarkan uang kertasnya." }
+        ]
+    },
+    {
+        kanji: "服", meaning: "Pakaian", onyomi: "フク", kunyomi: "-",
+        strokes: 8, category: "object", jlpt: "N3",
+        vocab: ["洋服（ようふく）pakaian gaya barat", "制服（せいふく）seragam", "着服（ちゃくふく）berpakaian", "服装（ふくそう）pakaian/penampilan"],
+        examples: [
+            { jp: "新しい服を買いました。", reading: "あたらしいふくをかいました。", id: "Saya membeli baju baru." },
+            { jp: "制服を着ています。", reading: "せいふくをきています。", id: "Saya memakai seragam." },
+            { jp: "服装のルールを守ってください。", reading: "ふくそうのるーるをまもってください。", id: "Tolong patuhi aturan berpakaian." }
+        ]
+    },
+    {
+        kanji: "薬", meaning: "Obat", onyomi: "ヤク", kunyomi: "くすり",
+        strokes: 16, category: "object", jlpt: "N3",
+        vocab: ["薬局（やっきょく）apotek", "薬剤師（やくざいし）apoteker", "漢方薬（かんぽうやく）obat tradisional Tiongkok"],
+        examples: [
+            { jp: "薬を飲んでください。", reading: "くすりをのんでください。", id: "Tolong minum obat." },
+            { jp: "薬局で薬を買いました。", reading: "やっきょくでくすりをかいました。", id: "Saya membeli obat di apotek." },
+            { jp: "この薬は効きます。", reading: "このくすりはききます。", id: "Obat ini manjur." }
+        ]
+    },
+    {
+        kanji: "車", meaning: "Mobil/Kendaraan", onyomi: "シャ", kunyomi: "くるま",
+        strokes: 7, category: "object", jlpt: "N3",
+        vocab: ["電車（でんしゃ）kereta listrik", "自動車（じどうしゃ）mobil", "自転車（じてんしゃ）sepeda", "駐車場（ちゅうしゃじょう）tempat parkir"],
+        examples: [
+            { jp: "電車で通勤します。", reading: "でんしゃでつうきんします。", id: "Saya berangkat kerja naik kereta." },
+            { jp: "自転車で学校へ行きます。", reading: "じてんしゃでがっこうへいきます。", id: "Saya pergi ke sekolah naik sepeda." },
+            { jp: "駐車場はどこですか？", reading: "ちゅうしゃじょうはどこですか？", id: "Di mana tempat parkir?" }
+        ]
+    },
+    {
+        kanji: "金", meaning: "Uang/Emas", onyomi: "キン, コン", kunyomi: "かね, かな",
+        strokes: 8, category: "object", jlpt: "N3",
+        vocab: ["お金（おかね）uang", "金曜日（きんようび）hari Jumat", "金属（きんぞく）logam", "金額（きんがく）jumlah uang"],
+        examples: [
+            { jp: "お金が必要です。", reading: "おかねがひつようです。", id: "Saya butuh uang." },
+            { jp: "金曜日に会いましょう。", reading: "きんようびにあいましょう。", id: "Mari bertemu hari Jumat." },
+            { jp: "金額はいくらですか？", reading: "きんがくはいくらですか？", id: "Berapa jumlah uangnya?" }
+        ]
+    },
+    {
+        kanji: "米", meaning: "Beras/Amerika", onyomi: "ベイ, マイ", kunyomi: "こめ",
+        strokes: 6, category: "object", jlpt: "N3",
+        vocab: ["米国（べいこく）Amerika Serikat", "玄米（げんまい）beras merah", "白米（はくまい）nasi putih", "米粉（こめこ）tepung beras"],
+        examples: [
+            { jp: "日本のお米は美味しいです。", reading: "にほんのおこめはおいしいです。", id: "Beras Jepang enak." },
+            { jp: "米国に留学しました。", reading: "べいこくにりゅうがくしました。", id: "Saya bersekolah di Amerika Serikat." },
+            { jp: "玄米は健康に良いです。", reading: "げんまいはけんこうによいです。", id: "Beras merah baik untuk kesehatan." }
+        ]
+    },
+    {
+        kanji: "門", meaning: "Gerbang", onyomi: "モン", kunyomi: "かど",
+        strokes: 8, category: "object", jlpt: "N3",
+        vocab: ["正門（せいもん）gerbang utama", "専門（せんもん）spesialisasi", "入門（にゅうもん）pengantar/pemula", "門下（もんか）murid"],
+        examples: [
+            { jp: "正門から入ってください。", reading: "せいもんからはいってください。", id: "Tolong masuk dari gerbang utama." },
+            { jp: "彼の専門は経済学です。", reading: "かれのせんもんはけいざいがくです。", id: "Spesialisasi dia adalah ekonomi." },
+            { jp: "日本語入門クラスに入りました。", reading: "にほんごにゅうもんくらすにはいりました。", id: "Saya masuk kelas pengantar bahasa Jepang." }
+        ]
+    },
+    {
+        kanji: "机", meaning: "Meja", onyomi: "キ", kunyomi: "つくえ",
+        strokes: 6, category: "object", jlpt: "N3",
+        vocab: ["机の上（つくえのうえ）di atas meja", "事務机（じむつくえ）meja kantor"],
+        examples: [
+            { jp: "机の上に本があります。", reading: "つくえのうえにほんがあります。", id: "Ada buku di atas meja." },
+            { jp: "新しい机を買いました。", reading: "あたらしいつくえをかいました。", id: "Saya membeli meja baru." },
+            { jp: "机に向かって勉強します。", reading: "つくえにむかってべんきょうします。", id: "Saya belajar di depan meja." }
+        ]
+    },
+    {
+        kanji: "袋", meaning: "Kantong/Tas", onyomi: "タイ", kunyomi: "ふくろ",
+        strokes: 11, category: "object", jlpt: "N3",
+        vocab: ["袋（ふくろ）kantong", "手袋（てぶくろ）sarung tangan", "寝袋（ねぶくろ）kantong tidur", "買い物袋（かいものぶくろ）kantong belanja"],
+        examples: [
+            { jp: "袋に入れてください。", reading: "ふくろにいれてください。", id: "Tolong masukkan ke kantong." },
+            { jp: "手袋をはめました。", reading: "てぶくろをはめました。", id: "Saya memakai sarung tangan." },
+            { jp: "エコバッグを持参しました。", reading: "えこばっぐをじさんしました。", id: "Saya membawa tas belanja ramah lingkungan." }
+        ]
+    },
+    {
+        kanji: "荷", meaning: "Barang bawaan/Beban", onyomi: "カ", kunyomi: "に",
+        strokes: 10, category: "object", jlpt: "N3",
+        vocab: ["荷物（にもつ）barang bawaan", "入荷（にゅうか）masuknya barang", "出荷（しゅっか）pengiriman barang"],
+        examples: [
+            { jp: "荷物を預けてください。", reading: "にもつをあずけてください。", id: "Tolong titipkan barang bawaannya." },
+            { jp: "荷物が多いです。", reading: "にもつがおおいです。", id: "Barang bawaannya banyak." },
+            { jp: "新しい商品が入荷しました。", reading: "あたらしいしょうひんがにゅうかしました。", id: "Produk baru telah masuk." }
+        ]
+    },
+
+    // ===== MORE KANJI - VARIOUS CATEGORIES =====
+    {
+        kanji: "安", meaning: "Murah/Aman", onyomi: "アン", kunyomi: "やすい",
+        strokes: 6, category: "society", jlpt: "N3",
+        vocab: ["安全（あんぜん）aman", "安心（あんしん）lega/tenang", "安い（やすい）murah", "不安（ふあん）cemas/khawatir"],
+        examples: [
+            { jp: "この店は安いです。", reading: "このみせはやすいです。", id: "Toko ini murah." },
+            { jp: "安全に気をつけてください。", reading: "あんぜんにきをつけてください。", id: "Tolong berhati-hati atas keselamatan." },
+            { jp: "不安にならないでください。", reading: "ふあんにならないでください。", id: "Jangan menjadi cemas." }
+        ]
+    },
+    {
+        kanji: "高", meaning: "Tinggi/Mahal", onyomi: "コウ", kunyomi: "たかい, たかまる",
+        strokes: 10, category: "society", jlpt: "N3",
+        vocab: ["高い（たかい）tinggi/mahal", "高校（こうこう）SMA", "最高（さいこう）terbaik", "高齢（こうれい）usia lanjut"],
+        examples: [
+            { jp: "このビルは高いです。", reading: "このびるはたかいです。", id: "Gedung ini tinggi." },
+            { jp: "最高の思い出です。", reading: "さいこうのおもいでです。", id: "Ini kenangan terbaik." },
+            { jp: "高齢者に席を譲りましょう。", reading: "こうれいしゃにせきをゆずりましょう。", id: "Mari memberikan kursi untuk lansia." }
+        ]
+    },
+    {
+        kanji: "低", meaning: "Rendah", onyomi: "テイ", kunyomi: "ひくい, ひくまる",
+        strokes: 7, category: "society", jlpt: "N3",
+        vocab: ["低い（ひくい）rendah", "最低（さいてい）terendah/paling buruk", "低下（ていか）penurunan", "低温（ていおん）suhu rendah"],
+        examples: [
+            { jp: "今日は気温が低いです。", reading: "きょうはきおんがひくいです。", id: "Suhu hari ini rendah." },
+            { jp: "成績が低下しました。", reading: "せいせきがていかしました。", id: "Nilai menurun." },
+            { jp: "これは最低です！", reading: "これはさいていです！", id: "Ini yang terburuk!" }
+        ]
+    },
+    {
+        kanji: "長", meaning: "Panjang/Kepala", onyomi: "チョウ", kunyomi: "ながい",
+        strokes: 8, category: "people", jlpt: "N3",
+        vocab: ["長い（ながい）panjang", "社長（しゃちょう）direktur", "校長（こうちょう）kepala sekolah", "成長（せいちょう）pertumbuhan"],
+        examples: [
+            { jp: "この道は長いです。", reading: "このみちはながいです。", id: "Jalan ini panjang." },
+            { jp: "会社の社長に会いました。", reading: "かいしゃのしゃちょうにあいました。", id: "Saya bertemu direktur perusahaan." },
+            { jp: "子供の成長が早いです。", reading: "こどものせいちょうがはやいです。", id: "Pertumbuhan anak cepat." }
+        ]
+    },
+    {
+        kanji: "短", meaning: "Pendek", onyomi: "タン", kunyomi: "みじかい",
+        strokes: 12, category: "society", jlpt: "N3",
+        vocab: ["短い（みじかい）pendek", "短期（たんき）jangka pendek", "短所（たんしょ）kelemahan", "短編（たんぺん）cerita pendek"],
+        examples: [
+            { jp: "この映画は短いです。", reading: "このえいがはみじかいです。", id: "Film ini pendek." },
+            { jp: "短期留学をしました。", reading: "たんきりゅうがくをしました。", id: "Saya belajar singkat di luar negeri." },
+            { jp: "自分の短所を知っています。", reading: "じぶんのたんしょをしっています。", id: "Saya tahu kelemahan diri sendiri." }
+        ]
+    },
+    {
+        kanji: "新", meaning: "Baru", onyomi: "シン", kunyomi: "あたらしい, にい",
+        strokes: 13, category: "society", jlpt: "N3",
+        vocab: ["新しい（あたらしい）baru", "新幹線（しんかんせん）kereta cepat Jepang", "新聞（しんぶん）koran", "革新（かくしん）inovasi"],
+        examples: [
+            { jp: "新しいスマホを買いました。", reading: "あたらしいすまほをかいました。", id: "Saya membeli smartphone baru." },
+            { jp: "新幹線で東京へ行きました。", reading: "しんかんせんでとうきょうへいきました。", id: "Saya pergi ke Tokyo naik Shinkansen." },
+            { jp: "毎朝新聞を読みます。", reading: "まいあさしんぶんをよみます。", id: "Saya membaca koran setiap pagi." }
+        ]
+    },
+    {
+        kanji: "古", meaning: "Lama/Kuno", onyomi: "コ", kunyomi: "ふるい",
+        strokes: 5, category: "society", jlpt: "N3",
+        vocab: ["古い（ふるい）lama/tua", "古典（こてん）klasik", "中古（ちゅうこ）bekas", "古代（こだい）zaman kuno"],
+        examples: [
+            { jp: "この建物は古いです。", reading: "このたてものはふるいです。", id: "Bangunan ini tua." },
+            { jp: "中古車を買いました。", reading: "ちゅうこしゃをかいました。", id: "Saya membeli mobil bekas." },
+            { jp: "古典文学を読みます。", reading: "こてんぶんがくをよみます。", id: "Saya membaca sastra klasik." }
+        ]
+    },
+    {
+        kanji: "重", meaning: "Berat/Penting", onyomi: "ジュウ, チョウ", kunyomi: "おもい, かさねる",
+        strokes: 9, category: "object", jlpt: "N3",
+        vocab: ["重い（おもい）berat", "重要（じゅうよう）penting", "体重（たいじゅう）berat badan", "二重（にじゅう）ganda"],
+        examples: [
+            { jp: "この荷物は重いです。", reading: "このにもつはおもいです。", id: "Barang bawaan ini berat." },
+            { jp: "これは重要な問題です。", reading: "これはじゅうようなもんだいです。", id: "Ini adalah masalah penting." },
+            { jp: "体重が増えました。", reading: "たいじゅうがふえました。", id: "Berat badan saya bertambah." }
+        ]
+    },
+    {
+        kanji: "軽", meaning: "Ringan", onyomi: "ケイ", kunyomi: "かるい, かろやか",
+        strokes: 12, category: "object", 
